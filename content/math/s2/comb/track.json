@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "subject": "math",
+  "stage": "s2",
+  "track": {
+    "id": "comb",
+    "title": "조합",
+    "description": "세기, 비둘기집 원리, 포함-배제, 그래프"
+  },
+  "totals": {
+    "lessons": 0,
+    "lesson_questions": 0,
+    "review_questions": 0,
+    "questions": 0
+  },
+  "chapters": [
+    {
+      "no": 1,
+      "id": "math-s2-comb-ch01",
+      "title": "그래프 이론",
+      "dir": "ch01",
+      "available": false
+    },
+    {
+      "no": 2,
+      "id": "math-s2-comb-ch02",
+      "title": "불변량과 단조변량",
+      "dir": "ch02",
+      "available": false
+    },
+    {
+      "no": 3,
+      "id": "math-s2-comb-ch03",
+      "title": "극단 원리",
+      "dir": "ch03",
+      "available": false
+    }
+  ]
+}

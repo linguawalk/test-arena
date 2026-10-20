@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "subject": "math",
+  "stage": "s3",
+  "track": {
+    "id": "proof",
+    "title": "증명의 기초",
+    "description": "명제와 증명, 수학적 귀납법, 답안 쓰기"
+  },
+  "totals": {
+    "lessons": 0,
+    "lesson_questions": 0,
+    "review_questions": 0,
+    "questions": 0
+  },
+  "chapters": [
+    {
+      "no": 1,
+      "id": "math-s3-proof-ch01",
+      "title": "출제 경향 분석",
+      "dir": "ch01",
+      "available": false
+    },
+    {
+      "no": 2,
+      "id": "math-s3-proof-ch02",
+      "title": "모의고사",
+      "dir": "ch02",
+      "available": false
+    }
+  ]
+}
