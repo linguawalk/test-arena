@@ -8,10 +8,10 @@
     "description": "명제와 증명, 수학적 귀납법, 답안 쓰기"
   },
   "totals": {
-    "lessons": 4,
-    "lesson_questions": 48,
-    "review_questions": 10,
-    "questions": 58
+    "lessons": 12,
+    "lesson_questions": 141,
+    "review_questions": 30,
+    "questions": 171
   },
   "chapters": [
     {
@@ -29,14 +29,20 @@
       "id": "math-s1-proof-ch02",
       "title": "수학적 귀납법",
       "dir": "ch02",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 45,
+      "review_questions": 10
     },
     {
       "no": 3,
       "id": "math-s1-proof-ch03",
       "title": "답안 쓰기",
       "dir": "ch03",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 48,
+      "review_questions": 10
     }
   ]
 }
