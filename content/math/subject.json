@@ -28,7 +28,7 @@
           "title": "대수",
           "description": "부등식, 다항식, 수열, 함수방정식",
           "chapters": 4,
-          "available": false
+          "available": true
         },
         {
           "id": "nt",
