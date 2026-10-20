@@ -12,8 +12,8 @@ SUBJECTS = [
      "description": "물리·화학·생물·지구과학·천문", "available": False},
     {"id": "info", "title": "정보 올림피아드", "path": "KOI → IOI",
      "description": "자료구조·알고리즘 설계·그래프", "available": False},
-    {"id": "hum", "title": "인문·사회 경시", "path": "IPO·IOL·iGeo·IEO·역사·WSDC",
-     "description": "철학·언어학·지리·경제·역사·토론논술", "available": False},
+    {"id": "hum", "title": "인문·사회 경시", "path": "IPO·IOL·iGeo·IEO·역사",
+     "description": "철학·언어학·지리·경제·역사 (개인 시험 부분)", "available": False},
 ]
 
 STAGES = [
