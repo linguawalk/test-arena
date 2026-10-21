@@ -339,11 +339,11 @@ function geoFig(cfg){
   const X = x => pad + (x - x0) * sc, Y = y => H - pad - (y - y0) * sc;
   const cx = xs.reduce((a, b) => a + b, 0) / xs.length, cy = ys.reduce((a, b) => a + b, 0) / ys.length;
   const svg = el("svg", {viewBox:`0 0 ${Wd} ${H}`, width:Wd, role:"img", "aria-label": cfg.alt || "도형 그림"});
-  const ink = "#172033", hl = "#1D3FA8", soft = "#7C889E";
+  const ink = "#172033", hl = "#7A1F3D", soft = "#7C889E";
   const order = {poly:0, circle:1, seg:2, arc:3, right:3, text:4, pt:5};
   [...E].sort((p, q) => (order[p.t] ?? 2) - (order[q.t] ?? 2)).forEach(e => {
     const col = e.hl ? hl : ink;
-    if (e.t === "poly") el("polygon", {points: e.pts.map(q => X(q[0]) + "," + Y(q[1])).join(" "), fill: e.fill === false ? "none" : (e.hl ? "#DCE4F8" : "#EEF2FA"), stroke: col, "stroke-width": 1.8, "stroke-dasharray": e.dash ? "5 4" : "none", "fill-opacity": e.fill === false ? 0 : 0.9}, svg);
+    if (e.t === "poly") el("polygon", {points: e.pts.map(q => X(q[0]) + "," + Y(q[1])).join(" "), fill: e.fill === false ? "none" : (e.hl ? "#F1D9E2" : "#F7EFF2"), stroke: col, "stroke-width": 1.8, "stroke-dasharray": e.dash ? "5 4" : "none", "fill-opacity": e.fill === false ? 0 : 0.9}, svg);
     else if (e.t === "seg") el("line", {x1:X(e.a[0]), y1:Y(e.a[1]), x2:X(e.b[0]), y2:Y(e.b[1]), stroke: e.dash ? soft : col, "stroke-width": e.hl ? 2.6 : 1.8, "stroke-dasharray": e.dash ? "5 4" : "none"}, svg);
     else if (e.t === "circle") el("circle", {cx:X(e.c[0]), cy:Y(e.c[1]), r:e.r * sc, fill:"none", stroke:col, "stroke-width":1.8, "stroke-dasharray": e.dash ? "5 4" : "none"}, svg);
     else if (e.t === "right"){ const v = e.p, u1 = [e.a[0] - v[0], e.a[1] - v[1]], u2 = [e.b[0] - v[0], e.b[1] - v[1]];

@@ -49,7 +49,7 @@
           "title": "기하",
           "description": "닮음, 원의 성질, 삼각형의 오심, 기하 변환",
           "chapters": 4,
-          "available": false
+          "available": true
         }
       ]
     },

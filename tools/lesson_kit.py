@@ -44,3 +44,73 @@ def PR(prompt, model, criteria, hint, stage="apply", expl=None):
     if expl:
         s["explanation"] = expl
     return s
+
+
+# ---------------------------------------------------------------- 도형 그림 (geo 위젯)
+def G(alt, *els, maxh=240):
+    """도형 그림. 좌표는 수학 좌표(위쪽이 +y)."""
+    return {"widget": "geo", "config": {"elements": [e for e in els if e], "alt": alt, "maxh": maxh}, "static": True}
+
+
+def pt(p, label=None, pos=None, hide=False):
+    e = {"t": "pt", "p": [round(p[0], 4), round(p[1], 4)]}
+    if label: e["label"] = label
+    if pos: e["pos"] = pos
+    if hide: e["hide"] = True
+    return e
+
+
+def seg(a, b, dash=False, hl=False):
+    e = {"t": "seg", "a": [round(a[0], 4), round(a[1], 4)], "b": [round(b[0], 4), round(b[1], 4)]}
+    if dash: e["dash"] = True
+    if hl: e["hl"] = True
+    return e
+
+
+def poly(pts, fill=True, hl=False, dash=False):
+    e = {"t": "poly", "pts": [[round(x, 4), round(y, 4)] for x, y in pts]}
+    if not fill: e["fill"] = False
+    if hl: e["hl"] = True
+    if dash: e["dash"] = True
+    return e
+
+
+def circ(c, r, dash=False):
+    e = {"t": "circle", "c": [round(c[0], 4), round(c[1], 4)], "r": round(r, 4)}
+    if dash: e["dash"] = True
+    return e
+
+
+def rt(p, a, b):
+    return {"t": "right", "p": list(p), "a": list(a), "b": list(b)}
+
+
+def ang(p, a, b, label=None, r=22):
+    e = {"t": "arc", "p": list(p), "a": list(a), "b": list(b), "r": r}
+    if label: e["label"] = label
+    return e
+
+
+def tx(p, s, hl=False):
+    e = {"t": "text", "p": [round(p[0], 4), round(p[1], 4)], "s": s}
+    if hl: e["hl"] = True
+    return e
+
+
+def with_fig(screen, fig):
+    screen["figure"] = fig
+    return screen
+
+
+# 계산 도우미
+def lerp(a, b, t):
+    return (a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t)
+
+
+def mid(a, b):
+    return lerp(a, b, 0.5)
+
+
+def on_circle(c, r, deg):
+    import math
+    return (c[0] + r * math.cos(math.radians(deg)), c[1] + r * math.sin(math.radians(deg)))
