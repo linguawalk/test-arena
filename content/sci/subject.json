@@ -29,7 +29,7 @@
           "title": "역학",
           "description": "뉴턴 법칙, 에너지, 운동량, 원운동과 중력",
           "chapters": 4,
-          "available": false,
+          "available": true,
           "group": "물리"
         },
         {
