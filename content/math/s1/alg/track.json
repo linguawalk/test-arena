@@ -5,7 +5,8 @@
   "track": {
     "id": "alg",
     "title": "대수",
-    "description": "부등식, 다항식, 수열, 함수방정식"
+    "description": "부등식, 다항식, 수열, 함수방정식",
+    "group": null
   },
   "totals": {
     "lessons": 16,

@@ -1,8 +1,11 @@
-"""test-arena 커리큘럼 정의 (수학 올림피아드).
+"""test-arena 커리큘럼 정의.
 
 단계: s1 예선(국내 1차) / s2 본선(국내 2차·최종 선발) / s3 국제(목차·학습 가이드 중심)
-트랙: proof 증명의 기초 · alg 대수 · nt 정수론 · comb 조합 · geo 기하
+과목마다 TRACKS·CHAPTERS·TRACK_ORDER를 둔다 (아래 CURRICULUM).
+- math: proof 증명의 기초 · alg 대수 · nt 정수론 · comb 조합 · geo 기하
+- sci: 물리(phy-*)부터. 트랙의 group은 탐색 화면에서 과목 묶음 제목으로 쓴다.
 레슨이 정의된 챕터만 available = True 가 된다 (build.py가 lessons/ 폴더를 보고 판단).
+과목의 available은 열린 챕터가 하나라도 있으면 True로 빌드 때 정해진다.
 """
 
 SUBJECTS = [
@@ -59,3 +62,45 @@ CHAPTERS = {
 }
 
 TRACK_ORDER = ["proof", "alg", "nt", "comb", "geo"]
+
+# ---------------------------------------------------------------- 과학 올림피아드
+# 물리 (KPhO → IPhO). 커리큘럼(v1) 문서 2장 표: S1 미적분 기반 역학·전자기 기초 /
+# S2 강체·진동, 열역학, 광학, 오차 분석 / S3 상대론·양자 기초, 실험 문제
+SCI_TRACKS = {
+    "phy-kin": {"group": "물리", "title": "운동과 물리 수학", "description": "차원 분석, 미분·적분으로 보는 운동, 벡터와 포물선 운동"},
+    "phy-dyn": {"group": "물리", "title": "역학", "description": "뉴턴 법칙, 에너지, 운동량, 원운동과 중력"},
+    "phy-em": {"group": "물리", "title": "전자기 기초", "description": "전기장, 가우스 법칙과 전위, 회로, 자기장과 유도"},
+    "phy-rigid": {"group": "물리", "title": "강체와 진동", "description": "강체의 회전, 단진동, 감쇠·강제 진동"},
+    "phy-thermo": {"group": "물리", "title": "열역학", "description": "기체 분자 운동론, 열역학 법칙, 열기관"},
+    "phy-optics": {"group": "물리", "title": "광학", "description": "기하 광학, 파동 광학"},
+    "phy-exp": {"group": "물리", "title": "실험과 오차", "description": "측정과 오차 전파, 그래프 분석"},
+    "phy-modern": {"group": "물리", "title": "현대 물리", "description": "특수 상대론, 양자 기초"},
+    "phy-lab": {"group": "물리", "title": "실험 문제", "description": "실험 문제 접근법, 모의 실험 과제"},
+}
+SCI_CHAPTERS = {
+    "s1": {
+        "phy-kin": ["차원 분석과 어림", "미분으로 보는 운동", "적분으로 보는 운동", "벡터와 포물선 운동"],
+        "phy-dyn": ["뉴턴 법칙과 자유물체도", "일과 에너지", "운동량과 충돌", "원운동과 만유인력"],
+        "phy-em": ["전기력과 전기장", "가우스 법칙과 전위", "축전기와 직류 회로", "자기장과 전자기 유도"],
+    },
+    "s2": {
+        "phy-rigid": ["강체의 회전", "단진동", "감쇠·강제 진동"],
+        "phy-thermo": ["기체 분자 운동론", "열역학 법칙", "열기관과 엔트로피"],
+        "phy-optics": ["기하 광학", "파동 광학"],
+        "phy-exp": ["측정과 오차 전파", "그래프 분석과 선형화"],
+    },
+    "s3": {
+        "phy-modern": ["특수 상대론", "양자 기초"],
+        "phy-lab": ["실험 문제 접근법", "모의 실험 과제"],
+    },
+}
+SCI_ORDER = ["phy-kin", "phy-dyn", "phy-em", "phy-rigid", "phy-thermo", "phy-optics", "phy-exp", "phy-modern", "phy-lab"]
+
+# 과목별 묶음. levels는 단계별 수준 문구, competition은 레슨 JSON의 대회 태그,
+# work는 서술형 문항 이름(math: 증명, sci: 풀이).
+CURRICULUM = {
+    "math": {"tracks": TRACKS, "chapters": CHAPTERS, "order": TRACK_ORDER, "competition": "KMO", "work": "증명",
+             "levels": {"s3": "IMO 수준"}},
+    "sci": {"tracks": SCI_TRACKS, "chapters": SCI_CHAPTERS, "order": SCI_ORDER, "competition": "KPhO", "work": "풀이",
+            "levels": {"s3": "IPhO 등 국제 대회 수준"}},
+}

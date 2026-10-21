@@ -34,6 +34,7 @@ nav a{display:flex;gap:10px;padding:9px 10px;border-radius:8px;text-decoration:n
 nav a[aria-current]{background:var(--blue-soft);color:var(--blue);font-weight:700}
 nav a:hover{background:var(--blue-soft)}
 nav .no{color:var(--ink-soft);width:1.2em;font-variant-numeric:tabular-nums}
+nav .grp{font-size:13px;font-weight:700;color:var(--blue);padding:10px 10px 4px;letter-spacing:.02em}
 nav em{font-style:normal;font-size:13px;margin-left:auto;color:#7C889E}
 .head h1{font-size:34px;margin:0 0 8px;letter-spacing:-.02em}
 .head p{margin:0;color:var(--ink-soft);font-size:17px;line-height:1.6}
@@ -57,7 +58,7 @@ nav em{font-style:normal;font-size:13px;margin-left:auto;color:#7C889E}
 .items .review .state{border-radius:4px}
 .empty{padding:24px;border:2px dashed var(--grid-strong);border-radius:10px;color:var(--ink-soft);line-height:1.6}
 .note{margin:0 0 22px;padding:12px 14px;border-radius:8px;background:var(--blue-soft);font-size:15px;line-height:1.6}
-@media (max-width:760px){.layout{grid-template-columns:1fr;gap:24px}nav ol{flex-direction:row;overflow-x:auto;padding-bottom:6px}nav a{white-space:nowrap}.head h1{font-size:28px}}
+@media (max-width:760px){.layout{grid-template-columns:1fr;gap:24px}nav ol{flex-direction:row;overflow-x:auto;padding-bottom:6px}nav a{white-space:nowrap}nav .grp{padding:9px 4px 9px 0;white-space:nowrap}.head h1{font-size:28px}}
 </style>
 </head>
 <body>
@@ -86,8 +87,10 @@ async function j(u){ const r = await fetch(u); if (!r.ok) throw new Error(u); re
       ? `<a href="?subj=${SUBJ}&s=${s.no}"${s === stage ? ' aria-current="page"' : ""}>${esc(s.title)}</a>`
       : `<span>${esc(s.title)} · 준비 중</span>`).join("");
     const TRACK = P.get("t") || (stage.tracks.find(t => t.available) || stage.tracks[0]).id;
-    document.getElementById("tracks").innerHTML = stage.tracks.map((t, k) =>
-      `<li><a href="?subj=${SUBJ}&s=${stage.no}&t=${t.id}"${t.id === TRACK ? ' aria-current="page"' : ""}><span class="no">${k + 1}</span>${esc(t.title)}${t.available ? "" : "<em>준비 중</em>"}</a></li>`).join("");
+    let grp = null;
+    document.getElementById("tracks").innerHTML = stage.tracks.map((t, k) => {
+      const head = t.group && t.group !== grp ? `<li class="grp">${esc(t.group)}</li>` : ""; grp = t.group || grp;
+      return head + `<li><a href="?subj=${SUBJ}&s=${stage.no}&t=${t.id}"${t.id === TRACK ? ' aria-current="page"' : ""}><span class="no">${k + 1}</span>${esc(t.title)}${t.available ? "" : "<em>준비 중</em>"}</a></li>`; }).join("");
     const tr = await j(`content/${SUBJ}/s${stage.no}/${TRACK}/track.json`);
     const Q = `subj=${SUBJ}&s=${stage.no}&t=${TRACK}`;
     const open = tr.chapters.filter(c => c.available);
@@ -109,7 +112,7 @@ async function j(u){ const r = await fetch(u); if (!r.ok) throw new Error(u); re
     }).join("");
     const pct = total ? Math.round(done / total * 100) : 0;
     const count = tr.totals.lessons ? `레슨 ${tr.totals.lessons}개, ${tr.totals.questions}문항이 열려 있습니다.` : "아직 열린 레슨이 없습니다.";
-    const note = TRACK !== "proof" && stage.no === 1 ? `<div class="note">처음이라면 <a href="?subj=${SUBJ}&s=1&t=proof">증명의 기초</a> 트랙부터 시작하세요. 다른 트랙의 증명 문항이 이 트랙의 방법을 씁니다.</div>` : "";
+    const note = SUBJ === "math" && TRACK !== "proof" && stage.no === 1 ? `<div class="note">처음이라면 <a href="?subj=${SUBJ}&s=1&t=proof">증명의 기초</a> 트랙부터 시작하세요. 다른 트랙의 증명 문항이 이 트랙의 방법을 씁니다.</div>` : "";
     main.innerHTML = note + `<div class="head"><h1>${esc(tr.track.title)}</h1><p>${esc(stage.title)} · ${esc(stage.level)}. ${esc(tr.track.description)}. ${count}</p></div>
       ${total ? `<div class="meter"><div class="track" role="progressbar" aria-label="트랙 진행률" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100"><i style="width:${pct}%"></i></div><span>${done} / ${total} 완료</span></div>` : ""}${html}`;
     document.title = `${tr.track.title} · test-arena`;

@@ -17,9 +17,10 @@ def E(problem, steps, answer, stage="discover", title="예제"):
     return {"type": "example", "stage": stage, "title": title, "problem": problem, "steps": steps, "answer": answer}
 
 
-def N(prompt, answer, hint, expl, stage="discover", fmt="integer"):
+def N(prompt, answer, hint, expl, stage="discover", fmt="integer", tol=0):
+    """fmt: integer / fraction / decimal. tol: 허용 오차(소수 답에서 반올림 차이를 받아 줄 때)."""
     return {"type": "question", "stage": stage, "qtype": "numeric", "prompt": prompt, "answer": str(answer),
-            "answer_format": fmt, "tolerance": 0, "hint": hint, "explanation": expl}
+            "answer_format": fmt, "tolerance": tol, "hint": hint, "explanation": expl}
 
 
 def F(prompt, blanks, hint, expl, stage="discover", unordered=None):
@@ -95,6 +96,44 @@ def tx(p, s, hl=False):
     e = {"t": "text", "p": [round(p[0], 4), round(p[1], 4)], "s": s}
     if hl: e["hl"] = True
     return e
+
+
+def vec(a, b, label=None, hl=False, dash=False):
+    """화살표(힘·속도 같은 벡터). label은 화살촉 바로 앞에 쓴다."""
+    e = {"t": "vec", "a": [round(a[0], 4), round(a[1], 4)], "b": [round(b[0], 4), round(b[1], 4)]}
+    if label: e["label"] = label
+    if hl: e["hl"] = True
+    if dash: e["dash"] = True
+    return e
+
+
+def zigzag(a, b, n=6, w=0.18, lead=0.2):
+    """a에서 b까지 지그재그(용수철·저항)를 seg 목록으로 만든다. G(...)에 *zigzag(...)로 넣는다."""
+    import math
+    dx, dy = b[0] - a[0], b[1] - a[1]
+    L = math.hypot(dx, dy); ux, uy = dx / L, dy / L; nx, ny = -uy, ux
+    p0 = (a[0] + ux * L * lead, a[1] + uy * L * lead); p1 = (b[0] - ux * L * lead, b[1] - uy * L * lead)
+    pts = [a, p0]
+    for k in range(1, 2 * n):
+        t = k / (2 * n); sgn = 1 if k % 2 else -1
+        pts.append((p0[0] + (p1[0] - p0[0]) * t + nx * w * sgn, p0[1] + (p1[1] - p0[1]) * t + ny * w * sgn))
+    pts += [p1, b]
+    return [seg(pts[i], pts[i + 1]) for i in range(len(pts) - 1)]
+
+
+def GR(alt, xmin, xmax, ymin, ymax, curves, xstep=1, ystep=1, xlabel="t", ylabel="v", points=None):
+    """그래프 그림(좌표평면). curves 예: {"kind": "pw", "pts": [[0,0],[2,4]]}, {"kind": "poly", "coef": [0,0,1]},
+    {"kind": "shade", "curve": {...}, "from": 0, "to": 2}."""
+    c = {"xmin": xmin, "xmax": xmax, "ymin": ymin, "ymax": ymax, "xstep": xstep, "ystep": ystep,
+         "xlabel": xlabel, "ylabel": ylabel, "curves": curves, "alt": alt}
+    if points: c["points"] = points
+    return {"widget": "graph", "config": c, "static": True}
+
+
+def pw(*pts, color=None):
+    c = {"kind": "pw", "pts": [list(p) for p in pts]}
+    if color: c["color"] = color
+    return c
 
 
 def with_fig(screen, fig):

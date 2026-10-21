@@ -4,6 +4,7 @@
   "subject": "math",
   "stage": "s1",
   "track": "proof",
+  "work": "증명",
   "track_title": "증명의 기초",
   "chapter": {
     "id": "math-s1-proof-ch03",

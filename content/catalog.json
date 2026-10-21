@@ -14,7 +14,7 @@
       "title": "과학 올림피아드",
       "path": "KPhO·KChO·KBO·KESO·천문 → 국제",
       "description": "물리·화학·생물·지구과학·천문",
-      "available": false
+      "available": true
     },
     {
       "id": "info",

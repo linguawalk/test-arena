@@ -5,7 +5,8 @@
   "track": {
     "id": "nt",
     "title": "정수론",
-    "description": "약수·배수, 합동식, 소수, 디오판토스 방정식"
+    "description": "약수·배수, 합동식, 소수, 디오판토스 방정식",
+    "group": null
   },
   "totals": {
     "lessons": 0,

@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "subject": "sci",
+  "stage": "s2",
+  "track": {
+    "id": "phy-thermo",
+    "title": "열역학",
+    "description": "기체 분자 운동론, 열역학 법칙, 열기관",
+    "group": "물리"
+  },
+  "totals": {
+    "lessons": 0,
+    "lesson_questions": 0,
+    "review_questions": 0,
+    "questions": 0
+  },
+  "chapters": [
+    {
+      "no": 1,
+      "id": "sci-s2-phy-thermo-ch01",
+      "title": "기체 분자 운동론",
+      "dir": "ch01",
+      "available": false
+    },
+    {
+      "no": 2,
+      "id": "sci-s2-phy-thermo-ch02",
+      "title": "열역학 법칙",
+      "dir": "ch02",
+      "available": false
+    },
+    {
+      "no": 3,
+      "id": "sci-s2-phy-thermo-ch03",
+      "title": "열기관과 엔트로피",
+      "dir": "ch03",
+      "available": false
+    }
+  ]
+}

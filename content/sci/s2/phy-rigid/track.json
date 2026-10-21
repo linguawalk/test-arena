@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "subject": "sci",
+  "stage": "s2",
+  "track": {
+    "id": "phy-rigid",
+    "title": "강체와 진동",
+    "description": "강체의 회전, 단진동, 감쇠·강제 진동",
+    "group": "물리"
+  },
+  "totals": {
+    "lessons": 0,
+    "lesson_questions": 0,
+    "review_questions": 0,
+    "questions": 0
+  },
+  "chapters": [
+    {
+      "no": 1,
+      "id": "sci-s2-phy-rigid-ch01",
+      "title": "강체의 회전",
+      "dir": "ch01",
+      "available": false
+    },
+    {
+      "no": 2,
+      "id": "sci-s2-phy-rigid-ch02",
+      "title": "단진동",
+      "dir": "ch02",
+      "available": false
+    },
+    {
+      "no": 3,
+      "id": "sci-s2-phy-rigid-ch03",
+      "title": "감쇠·강제 진동",
+      "dir": "ch03",
+      "available": false
+    }
+  ]
+}

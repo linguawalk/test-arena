@@ -189,6 +189,9 @@ function curveFn(c){
       log: t => t - c.p <= 0 ? NaN : c.a * Math.log(t - c.p) / Math.log(c.b) + c.q,
       trig: t => { const u = c.b * (t - c.p); const v = c.fn === "sin" ? Math.sin(u) : c.fn === "cos" ? Math.cos(u) : Math.tan(u);
                    return c.fn === "tan" && Math.abs(Math.cos(u)) < 1e-3 ? NaN : c.a * v + c.q; },
+      pw: t => { const P = c.pts; if (t < P[0][0] || t > P[P.length - 1][0]) return NaN;
+                 for (let i = 1; i < P.length; i++) if (t <= P[i][0]){ const [a, b] = [P[i - 1], P[i]]; return b[0] === a[0] ? b[1] : a[1] + (b[1] - a[1]) * (t - a[0]) / (b[0] - a[0]); }
+                 return NaN; },
       normal: t => (c.scale ?? 1) * Math.exp(-((t - c.m) ** 2) / (2 * c.s * c.s)) / (c.s * Math.sqrt(2 * Math.PI))
   }[c.kind];
 }
@@ -199,10 +202,10 @@ function drawCurves(svg, cfg, X, Y, pad, S){
   const defs = el("defs", {}, svg), cp = el("clipPath", {id}, defs);
   el("rect", {x:X(xmin), y:Y(ymax), width:X(xmax) - X(xmin), height:Y(ymin) - Y(ymax)}, cp);
   const g = el("g", {"clip-path":`url(#${id})`}, svg);
-  const colors = ["#1D3FA8", "#C2410C", "#1E7A50"];
+  const colors = ["#7A1F3D", "#1D3FA8", "#1E7A50"];
   let ci = 0;
   [...curves].sort((p, q) => (q.kind === "shade") - (p.kind === "shade")).forEach(c => {
-    const col = c.color || colors[ci++ % colors.length];
+    const col = c.color || (c.kind === "shade" ? null : colors[ci++ % colors.length]);
     if (c.kind === "circle"){ el("circle", {cx:X(c.cx), cy:Y(c.cy), r:Math.abs(X(c.cx + c.r) - X(c.cx)), fill:"none", stroke:col, "stroke-width":2.5}, g); return; }
     if (c.kind === "ellipse" || c.kind === "hyperbola" || c.kind === "parab_x"){
       const cx = c.cx || 0, cy = c.cy || 0, branches = [];
@@ -230,7 +233,7 @@ function drawCurves(svg, cfg, X, Y, pad, S){
       const lo2 = Math.max(xmin, c.from), hi2 = Math.min(xmax, c.to), M = 300; let d = "";
       for (let i = 0; i <= M; i++){ const t = lo2 + (hi2 - lo2) * i / M; d += (i ? " L" : "M") + `${X(t).toFixed(1)} ${Y(Math.max(ymin, Math.min(ymax, f1(t)))).toFixed(1)}`; }
       for (let i = M; i >= 0; i--){ const t = lo2 + (hi2 - lo2) * i / M; d += ` L${X(t).toFixed(1)} ${Y(Math.max(ymin, Math.min(ymax, f2(t)))).toFixed(1)}`; }
-      el("path", {d: d + " Z", fill:"rgba(29,63,168,0.18)", stroke:"none"}, g); return;
+      el("path", {d: d + " Z", fill:"rgba(122,31,61,0.15)", stroke:"none"}, g); return;
     }
     const f = curveFn(c);
     if (!f) return;
@@ -254,7 +257,7 @@ function coordPlane(cfg, onChange, interactive = true){
   const X = v => pad + (v - xmin) / (xmax - xmin) * (S - 2 * pad);
   const Y = v => S - pad - (v - ymin) / (ymax - ymin) * (S - 2 * pad);
   const svg = el("svg", interactive ? {viewBox:`0 0 ${S} ${S}`, width:S, role:"application", "aria-label":"좌표평면: 클릭하거나 방향키로 점을 옮기세요"}
-                                    : {viewBox:`0 0 ${S} ${S}`, width:S, role:"img", "aria-label":"그래프"});
+                                    : {viewBox:`0 0 ${S} ${S}`, width:S, role:"img", "aria-label":cfg.alt || "그래프"});
   if (interactive){ svg.classList.add("pad"); svg.tabIndex = 0; }
   const nx = Math.round((xmax - xmin) / xstep), ny = Math.round((ymax - ymin) / ystep);
   for (let i = 0; i <= nx; i++){ const v = xmin + i * xstep; el("line", {x1:X(v), x2:X(v), y1:Y(ymin), y2:Y(ymax), stroke:"#DCE4F0"}, svg); }
@@ -262,7 +265,7 @@ function coordPlane(cfg, onChange, interactive = true){
   const ax = xmin <= 0 && 0 <= xmax ? X(0) : X(xmin), ay = ymin <= 0 && 0 <= ymax ? Y(0) : Y(ymin);
   el("line", {x1:X(xmin), x2:X(xmax), y1:ay, y2:ay, stroke:"#172033", "stroke-width":1.6}, svg);
   el("line", {x1:ax, x2:ax, y1:Y(ymin), y2:Y(ymax), stroke:"#172033", "stroke-width":1.6}, svg);
-  txt(svg, X(xmax) + 14, ay + 5, "x", {fill:"#172033"}); txt(svg, ax, Y(ymax) - 12, "y", {fill:"#172033"});
+  txt(svg, X(xmax) + 14, ay + 5, cfg.xlabel || "x", {fill:"#172033"}); txt(svg, ax, Y(ymax) - 12, cfg.ylabel || "y", {fill:"#172033"});
   const ex = Math.max(1, Math.ceil(nx / 10)), ey = Math.max(1, Math.ceil(ny / 10));
   for (let i = 0; i <= nx; i += ex){ const v = xmin + i * xstep; if (Math.abs(v) > 1e-9) txt(svg, X(v), ay + 18, cfg.xpi ? fmtPi(v) : fmt(v), {"font-size":12}); }
   for (let j = 0; j <= ny; j += ey){ const v = ymin + j * ystep; if (Math.abs(v) > 1e-9) txt(svg, ax - 10, Y(v) + 4, fmt(v), {"font-size":12, "text-anchor":"end"}); }
@@ -340,11 +343,15 @@ function geoFig(cfg){
   const cx = xs.reduce((a, b) => a + b, 0) / xs.length, cy = ys.reduce((a, b) => a + b, 0) / ys.length;
   const svg = el("svg", {viewBox:`0 0 ${Wd} ${H}`, width:Wd, role:"img", "aria-label": cfg.alt || "도형 그림"});
   const ink = "#172033", hl = "#7A1F3D", soft = "#7C889E";
-  const order = {poly:0, circle:1, seg:2, arc:3, right:3, text:4, pt:5};
+  const order = {poly:0, circle:1, seg:2, vec:2, arc:3, right:3, text:4, pt:5};
   [...E].sort((p, q) => (order[p.t] ?? 2) - (order[q.t] ?? 2)).forEach(e => {
     const col = e.hl ? hl : ink;
     if (e.t === "poly") el("polygon", {points: e.pts.map(q => X(q[0]) + "," + Y(q[1])).join(" "), fill: e.fill === false ? "none" : (e.hl ? "#F1D9E2" : "#F7EFF2"), stroke: col, "stroke-width": 1.8, "stroke-dasharray": e.dash ? "5 4" : "none", "fill-opacity": e.fill === false ? 0 : 0.9}, svg);
     else if (e.t === "seg") el("line", {x1:X(e.a[0]), y1:Y(e.a[1]), x2:X(e.b[0]), y2:Y(e.b[1]), stroke: e.dash ? soft : col, "stroke-width": e.hl ? 2.6 : 1.8, "stroke-dasharray": e.dash ? "5 4" : "none"}, svg);
+    else if (e.t === "vec"){ const x1 = X(e.a[0]), y1 = Y(e.a[1]), x2 = X(e.b[0]), y2 = Y(e.b[1]), an = Math.atan2(y2 - y1, x2 - x1), h = 11, c2 = e.hl ? hl : ink;
+      el("line", {x1, y1, x2:x2 - 6 * Math.cos(an), y2:y2 - 6 * Math.sin(an), stroke:c2, "stroke-width":2.4, "stroke-dasharray": e.dash ? "5 4" : "none"}, svg);
+      el("path", {d:`M${x2} ${y2} L${x2 - h * Math.cos(an - 0.38)} ${y2 - h * Math.sin(an - 0.38)} L${x2 - h * Math.cos(an + 0.38)} ${y2 - h * Math.sin(an + 0.38)} Z`, fill:c2}, svg);
+      if (e.label) txt(svg, x2 + 14 * Math.cos(an), y2 + 14 * Math.sin(an) + 5, e.label, {fill:c2, "font-size":14, "font-weight":500}); }
     else if (e.t === "circle") el("circle", {cx:X(e.c[0]), cy:Y(e.c[1]), r:e.r * sc, fill:"none", stroke:col, "stroke-width":1.8, "stroke-dasharray": e.dash ? "5 4" : "none"}, svg);
     else if (e.t === "right"){ const v = e.p, u1 = [e.a[0] - v[0], e.a[1] - v[1]], u2 = [e.b[0] - v[0], e.b[1] - v[1]];
       const n1 = Math.hypot(...u1), n2 = Math.hypot(...u2), s = 11 / sc;
@@ -478,16 +485,16 @@ function buildQuestion(q, host){
     return api;
   }
   if (q.qtype === "proof"){
-    const t = document.createElement("textarea"); t.setAttribute("aria-label", "증명 쓰기");
-    t.placeholder = "증명을 써 보세요. 종이에 쓰고 여기는 비워 두어도 됩니다.";
+    const t = document.createElement("textarea"); t.setAttribute("aria-label", `${WK()} 쓰기`);
+    t.placeholder = `${WK()}${WK() === "풀이" ? "를" : "을"} 써 보세요. 종이에 쓰고 여기는 비워 두어도 됩니다.`;
     host.appendChild(t); api.ready = true; api.proof = true; api.focus = () => t.focus();
     api.max = q.criteria.reduce((a, c) => a + c.points, 0); api.score = 0;
     api.lock = () => t.readOnly = true; api.reveal = () => {};
     api.check = () => api.score === api.max;
     api.grade = () => {
       const box = document.createElement("div"); box.className = "proofgrade";
-      box.innerHTML = '<h2>모범 증명</h2><ol class="model">' + q.model_answer.map(l => "<li>" + esc(l) + "</li>").join("") + "</ol>"
-        + '<h2>채점 기준 <span>내 증명에 들어 있는 항목을 체크하세요</span></h2><ul class="crit">'
+      box.innerHTML = `<h2>모범 ${WK()}</h2>` + '<ol class="model">' + q.model_answer.map(l => "<li>" + esc(l) + "</li>").join("") + "</ol>"
+        + `<h2>채점 기준 <span>내 ${WK()}에 들어 있는 항목을 체크하세요</span></h2><ul class="crit">`
         + q.criteria.map((c, k) => `<li><label><input type="checkbox" data-k="${k}"><span>${esc(c.text)}</span><b>${c.points}점</b></label></li>`).join("") + "</ul>";
       host.appendChild(box); box.scrollIntoView({block:"start", behavior:"smooth"});
       box.addEventListener("change", () => { api.score = [...box.querySelectorAll("input:checked")].reduce((a, i) => a + q.criteria[+i.dataset.k].points, 0); });
@@ -502,6 +509,7 @@ function buildQuestion(q, host){
 
 /* ==KIT-END== */
 /* ---------- 흐름 ---------- */
+const WK = () => (data && data.work) || "증명";
 let data, screens, idx = 0, api = null, tries = 0, firstRight = 0, qCount = 0, phase = "idle", chapterMeta = null, courseMeta = null;
 const main = $("#main"), fb = $("#fb"), fbText = $("#fbText"), mainBtn = $("#mainBtn"), hintBtn = $("#hintBtn"), revealBtn = $("#revealBtn"), conceptBtn = $("#conceptBtn");
 
@@ -573,7 +581,7 @@ function resolved(correct, revealed){
   const s = screens[idx]; api.lock(); hintBtn.hidden = true; revealBtn.hidden = true; conceptBtn.hidden = true;
   if (correct && tries === 1) firstRight++;
   let html = correct ? "<strong>맞았어요</strong>" : "<strong>정답을 확인하세요</strong>";
-  if (s.qtype === "proof"){ html = `<strong>자가 채점 ${api.score} / ${api.max}점</strong>` + (correct ? "모든 기준을 갖춘 증명입니다." : "빠진 기준을 모범 증명에서 다시 확인하세요.");
+  if (s.qtype === "proof"){ html = `<strong>자가 채점 ${api.score} / ${api.max}점</strong>` + (correct ? `모든 기준을 갖춘 ${WK()}입니다.` : `빠진 기준을 모범 ${WK()}에서 다시 확인하세요.`);
     if (s.explanation) html += solHtml(s.explanation); }
   else if (s.qtype === "written"){ html = correct ? "<strong>핵심을 잘 짚었어요</strong>" : "<strong>모범 답안과 비교해 보세요</strong>"; if (s.model_answer) html += esc(s.model_answer); }
   else {
@@ -599,7 +607,7 @@ mainBtn.addEventListener("click", () => {
   if (phase === "next"){ idx++; show(); return; }
   if (phase === "grade"){ tries = 1; qCount++; api.lockGrade(); return resolved(api.check(), false); }
   if (phase === "check" && api && api.proof){ api.lock(); api.grade(); hintBtn.hidden = true; conceptBtn.hidden = true;
-    setFb("", "<strong>스스로 채점해 보세요</strong>모범 증명과 비교해 내 증명에 들어 있는 기준만 체크합니다.");
+    setFb("", `<strong>스스로 채점해 보세요</strong>모범 ${WK()}${WK() === "풀이" ? "와" : "과"} 비교해 내 ${WK()}에 들어 있는 기준만 체크합니다.`);
     phase = "grade"; mainBtn.textContent = "채점 완료"; return; }
   if (phase !== "check" || !api || !api.ready) return;
   tries++; if (tries === 1) qCount++;

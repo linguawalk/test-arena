@@ -4,6 +4,7 @@
   "subject": "math",
   "stage": "s1",
   "track": "alg",
+  "work": "증명",
   "track_title": "대수",
   "chapter": {
     "id": "math-s1-alg-ch04",

@@ -83,17 +83,15 @@ def number(screens, prefix=""):
     return out
 
 
-def build():
-    errors = []
-    write(os.path.join(OUT, "catalog.json"), {"schema_version": "1.0", "site": "test-arena", "subjects": C.SUBJECTS})
-
-    subj = "math"
+def build_subject(subj, errors):
+    cur = C.CURRICULUM[subj]
+    TR, CH, ORDER = cur["tracks"], cur["chapters"], cur["order"]
     stages_out = []
     for st in C.STAGES:
         sid = st["id"]
         tracks_out = []
-        for tid in C.TRACK_ORDER:
-            titles = C.CHAPTERS[sid].get(tid, [])
+        for tid in ORDER:
+            titles = CH[sid].get(tid, [])
             chapters, tot = [], {"lessons": 0, "lesson_questions": 0, "review_questions": 0}
             for no, title in enumerate(titles, 1):
                 src = os.path.join(LESSON_DIR, f"{subj}_{sid}_{tid}_ch{no:02d}.py")
@@ -102,7 +100,7 @@ def build():
                 if entry["available"]:
                     m = load(src)
                     chdir = os.path.join(OUT, subj, sid, tid, f"ch{no:02d}")
-                    meta = {"subject": subj, "stage": sid, "track": tid}
+                    meta = {"subject": subj, "stage": sid, "track": tid, "work": cur["work"]}
                     lessons_meta = []
                     for k, L in enumerate(m.LESSONS, 1):
                         lid = f"{ch_id}-l{k:02d}"
@@ -112,10 +110,10 @@ def build():
                         nq = sum(s["type"] == "question" for s in screens)
                         write(os.path.join(chdir, f"l{k:02d}.json"), {
                             "schema_version": "1.0", "site": "test-arena", **meta,
-                            "track_title": C.TRACKS[tid]["title"],
+                            "track_title": TR[tid]["title"],
                             "chapter": {"id": ch_id, "no": no, "title": title},
                             "lesson": {"id": lid, "no": k, "title": L["title"], "minutes": L["minutes"]},
-                            "tags": {"domain": m.DOMAIN, "competition": "KMO", "stage": sid},
+                            "tags": {"domain": m.DOMAIN, "competition": TR[tid].get("competition", cur["competition"]), "stage": sid},
                             "screens": screens})
                         lessons_meta.append({"no": k, "id": lid, "title": L["title"], "file": f"l{k:02d}.json",
                                              "questions": nq, "screens": len(screens)})
@@ -146,17 +144,29 @@ def build():
             if not titles:
                 continue
             avail = any(c["available"] for c in chapters)
-            track = {"id": tid, "title": C.TRACKS[tid]["title"], "description": C.TRACKS[tid]["description"],
+            track = {"id": tid, "title": TR[tid]["title"], "description": TR[tid]["description"],
                      "chapters": len(chapters), "available": avail}
+            if TR[tid].get("group"):
+                track["group"] = TR[tid]["group"]
             tracks_out.append(track)
             write(os.path.join(OUT, subj, sid, tid, "track.json"), {
                 "schema_version": "1.0", "subject": subj, "stage": sid,
-                "track": {"id": tid, "title": track["title"], "description": track["description"]},
+                "track": {"id": tid, "title": track["title"], "description": track["description"], "group": TR[tid].get("group")},
                 "totals": {**tot, "questions": tot["lesson_questions"] + tot["review_questions"]},
                 "chapters": chapters})
-        stages_out.append({**st, "available": any(t["available"] for t in tracks_out), "tracks": tracks_out})
-    sj = next(s for s in C.SUBJECTS if s["id"] == subj)
+        level = cur.get("levels", {}).get(sid, st["level"])
+        stages_out.append({**st, "level": level, "available": any(t["available"] for t in tracks_out), "tracks": tracks_out})
+    sj = dict(next(s for s in C.SUBJECTS if s["id"] == subj))
+    sj["available"] = any(s["available"] for s in stages_out)
     write(os.path.join(OUT, subj, "subject.json"), {"schema_version": "1.0", "subject": sj, "stages": stages_out})
+    return sj["available"]
+
+
+def build():
+    errors = []
+    open_subj = {subj: build_subject(subj, errors) for subj in C.CURRICULUM}
+    subjects = [{**s, "available": open_subj.get(s["id"], False)} for s in C.SUBJECTS]
+    write(os.path.join(OUT, "catalog.json"), {"schema_version": "1.0", "site": "test-arena", "subjects": subjects})
 
     if errors:
         print("빌드 기준 위반:")

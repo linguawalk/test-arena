@@ -5,7 +5,8 @@
   "track": {
     "id": "proof",
     "title": "증명의 기초",
-    "description": "명제와 증명, 수학적 귀납법, 답안 쓰기"
+    "description": "명제와 증명, 수학적 귀납법, 답안 쓰기",
+    "group": null
   },
   "totals": {
     "lessons": 0,

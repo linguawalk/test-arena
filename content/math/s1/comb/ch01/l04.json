@@ -4,6 +4,7 @@
   "subject": "math",
   "stage": "s1",
   "track": "comb",
+  "work": "증명",
   "track_title": "조합",
   "chapter": {
     "id": "math-s1-comb-ch01",
