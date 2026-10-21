@@ -8,10 +8,10 @@
     "description": "세기, 비둘기집 원리, 포함-배제, 그래프"
   },
   "totals": {
-    "lessons": 0,
-    "lesson_questions": 0,
-    "review_questions": 0,
-    "questions": 0
+    "lessons": 16,
+    "lesson_questions": 185,
+    "review_questions": 40,
+    "questions": 225
   },
   "chapters": [
     {
@@ -19,28 +19,40 @@
       "id": "math-s1-comb-ch01",
       "title": "세기의 원리 심화",
       "dir": "ch01",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 44,
+      "review_questions": 10
     },
     {
       "no": 2,
       "id": "math-s1-comb-ch02",
       "title": "비둘기집 원리",
       "dir": "ch02",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 47,
+      "review_questions": 10
     },
     {
       "no": 3,
       "id": "math-s1-comb-ch03",
       "title": "포함-배제 원리",
       "dir": "ch03",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 47,
+      "review_questions": 10
     },
     {
       "no": 4,
       "id": "math-s1-comb-ch04",
       "title": "점화식으로 세기",
       "dir": "ch04",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 47,
+      "review_questions": 10
     }
   ]
 }
