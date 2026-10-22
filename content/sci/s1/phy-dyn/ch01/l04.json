@@ -216,7 +216,7 @@
       "qtype": "numeric",
       "prompt": "5 m/s²로 가속하는 차 안의 컵에서 수면의 기울기 tan θ는? 소수로 쓰세요.",
       "answer": "0.5",
-      "answer_format": "integer",
+      "answer_format": "decimal",
       "tolerance": 0,
       "hint": "tan θ = a/g입니다.",
       "explanation": "수면은 유효 중력에 수직이고, 유효 중력은 g와 a를 합친 벡터입니다.\ntan θ = a/g = 5/10입니다.\n= 0.5이고, 수면은 차의 뒤쪽이 높아집니다."

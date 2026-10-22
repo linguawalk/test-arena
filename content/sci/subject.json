@@ -39,6 +39,30 @@
           "chapters": 4,
           "available": true,
           "group": "물리"
+        },
+        {
+          "id": "chem-stoich",
+          "title": "화학양론",
+          "description": "몰과 화학식, 반응의 양적 관계, 용액의 농도, 기체",
+          "chapters": 4,
+          "available": true,
+          "group": "화학"
+        },
+        {
+          "id": "chem-eq",
+          "title": "화학 평형",
+          "description": "평형 상수, 르샤틀리에 원리, 용해 평형",
+          "chapters": 4,
+          "available": false,
+          "group": "화학"
+        },
+        {
+          "id": "chem-acid",
+          "title": "산과 염기",
+          "description": "pH, 약산·약염기, 완충 용액, 적정",
+          "chapters": 4,
+          "available": false,
+          "group": "화학"
         }
       ]
     },
@@ -81,6 +105,22 @@
           "chapters": 2,
           "available": false,
           "group": "물리"
+        },
+        {
+          "id": "chem-thermo",
+          "title": "열역학과 반응 속도",
+          "description": "엔탈피·엔트로피·자유 에너지, 속도 법칙",
+          "chapters": 4,
+          "available": false,
+          "group": "화학"
+        },
+        {
+          "id": "chem-org",
+          "title": "유기 반응",
+          "description": "작용기, 치환·제거·첨가 반응과 메커니즘",
+          "chapters": 4,
+          "available": false,
+          "group": "화학"
         }
       ]
     },
@@ -107,6 +147,30 @@
           "chapters": 2,
           "available": false,
           "group": "물리"
+        },
+        {
+          "id": "chem-spec",
+          "title": "분광 분석",
+          "description": "IR·NMR·질량 분석으로 구조 결정",
+          "chapters": 3,
+          "available": false,
+          "group": "화학"
+        },
+        {
+          "id": "chem-coord",
+          "title": "배위화학",
+          "description": "착화합물의 구조, 결정장 이론",
+          "chapters": 2,
+          "available": false,
+          "group": "화학"
+        },
+        {
+          "id": "chem-lab",
+          "title": "실험 설계",
+          "description": "정량 분석, 실험 설계와 오차",
+          "chapters": 2,
+          "available": false,
+          "group": "화학"
         }
       ]
     }

@@ -42,6 +42,12 @@ def check_question(q, where, errors):
         ex = q.get("explanation") or ""
         if len(ex.replace("\n", "")) < RULE["expl_chars"] or len([l for l in ex.split("\n") if l.strip()]) < RULE["expl_steps"]:
             errors.append(f"{where}: 풀이가 {RULE['expl_chars']}자·{RULE['expl_steps']}단계 미만")
+    if t == "numeric":
+        ans, fmt = str(q["answer"]), q.get("answer_format")
+        if fmt == "integer" and ("." in ans or "/" in ans):
+            errors.append(f"{where}: 정수 형식인데 답이 {ans}")
+        if fmt == "decimal" and "/" in ans:
+            errors.append(f"{where}: 소수 형식인데 답이 분수 {ans}")
     if t == "fill_blank":
         n = len(re.findall(r"\{\{\d+\}\}", q["prompt"]))
         if n != len(q["blanks"]):

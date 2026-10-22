@@ -18,9 +18,9 @@ a{color:inherit}
 .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
 header{border-bottom:1px solid var(--grid)}
 header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-.logo{font-weight:700;font-size:18px;text-decoration:none;letter-spacing:-.01em}
+.logo{font-weight:700;font-size:18px;text-decoration:none;letter-spacing:-.01em;white-space:nowrap;margin-right:12px}
 .logo span{background:linear-gradient(transparent 58%,var(--marker) 58%)}
-.subj{font-size:15px;color:var(--ink-soft)}
+.subj{font-size:15px;color:var(--ink-soft);text-align:right}
 .stages{display:flex;gap:6px;padding:20px 0 0;flex-wrap:wrap}
 .stages a,.stages span{padding:8px 14px;border-radius:999px;font-size:15px;text-decoration:none;border:1px solid var(--grid-strong)}
 .stages a[aria-current]{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:700}
@@ -58,7 +58,7 @@ nav em{font-style:normal;font-size:13px;margin-left:auto;color:#7C889E}
 .items .review .state{border-radius:4px}
 .empty{padding:24px;border:2px dashed var(--grid-strong);border-radius:10px;color:var(--ink-soft);line-height:1.6}
 .note{margin:0 0 22px;padding:12px 14px;border-radius:8px;background:var(--blue-soft);font-size:15px;line-height:1.6}
-@media (max-width:760px){.layout{grid-template-columns:1fr;gap:24px}nav ol{flex-direction:row;overflow-x:auto;padding-bottom:6px}nav a{white-space:nowrap}nav .grp{padding:9px 4px 9px 0;white-space:nowrap}.head h1{font-size:28px}}
+@media (max-width:760px){.subj .path{display:none}.layout{grid-template-columns:1fr;gap:24px}nav ol{flex-direction:row;overflow-x:auto;padding-bottom:6px}nav a{white-space:nowrap}nav .grp{padding:9px 4px 9px 0;white-space:nowrap}.head h1{font-size:28px}}
 </style>
 </head>
 <body>
@@ -81,7 +81,7 @@ async function j(u){ const r = await fetch(u); if (!r.ok) throw new Error(u); re
   const main = document.getElementById("main");
   try{
     const subj = await j(`content/${SUBJ}/subject.json`);
-    document.getElementById("subj").textContent = `${subj.subject.title} · ${subj.subject.path}`;
+    document.getElementById("subj").innerHTML = `${esc(subj.subject.title)}<span class="path"> · ${esc(subj.subject.path)}</span>`;
     const stage = subj.stages.find(s => String(s.no) === SG) || subj.stages[0];
     document.getElementById("stages").innerHTML = subj.stages.map(s => s.available
       ? `<a href="?subj=${SUBJ}&s=${s.no}"${s === stage ? ' aria-current="page"' : ""}>${esc(s.title)}</a>`
@@ -91,6 +91,8 @@ async function j(u){ const r = await fetch(u); if (!r.ok) throw new Error(u); re
     document.getElementById("tracks").innerHTML = stage.tracks.map((t, k) => {
       const head = t.group && t.group !== grp ? `<li class="grp">${esc(t.group)}</li>` : ""; grp = t.group || grp;
       return head + `<li><a href="?subj=${SUBJ}&s=${stage.no}&t=${t.id}"${t.id === TRACK ? ' aria-current="page"' : ""}><span class="no">${k + 1}</span>${esc(t.title)}${t.available ? "" : "<em>준비 중</em>"}</a></li>`; }).join("");
+    const cur = document.querySelector('#tracks a[aria-current]');
+    if (cur && matchMedia("(max-width:760px)").matches){ const ol = document.getElementById("tracks"); ol.scrollLeft = cur.offsetLeft - 16; }
     const tr = await j(`content/${SUBJ}/s${stage.no}/${TRACK}/track.json`);
     const Q = `subj=${SUBJ}&s=${stage.no}&t=${TRACK}`;
     const open = tr.chapters.filter(c => c.available);

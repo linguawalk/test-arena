@@ -76,25 +76,44 @@ SCI_TRACKS = {
     "phy-exp": {"group": "물리", "title": "실험과 오차", "description": "측정과 오차 전파, 그래프 분석"},
     "phy-modern": {"group": "물리", "title": "현대 물리", "description": "특수 상대론, 양자 기초"},
     "phy-lab": {"group": "물리", "title": "실험 문제", "description": "실험 문제 접근법, 모의 실험 과제"},
+    # 화학 (KChO → IChO). 문서 2장 표: S1 화학양론·평형·산염기 / S2 열역학·반응속도론, 유기 반응 메커니즘 /
+    # S3 분광 분석, 배위화학, 실험 설계
+    "chem-stoich": {"group": "화학", "competition": "KChO", "title": "화학양론", "description": "몰과 화학식, 반응의 양적 관계, 용액의 농도, 기체"},
+    "chem-eq": {"group": "화학", "competition": "KChO", "title": "화학 평형", "description": "평형 상수, 르샤틀리에 원리, 용해 평형"},
+    "chem-acid": {"group": "화학", "competition": "KChO", "title": "산과 염기", "description": "pH, 약산·약염기, 완충 용액, 적정"},
+    "chem-thermo": {"group": "화학", "competition": "KChO", "title": "열역학과 반응 속도", "description": "엔탈피·엔트로피·자유 에너지, 속도 법칙"},
+    "chem-org": {"group": "화학", "competition": "KChO", "title": "유기 반응", "description": "작용기, 치환·제거·첨가 반응과 메커니즘"},
+    "chem-spec": {"group": "화학", "competition": "KChO", "title": "분광 분석", "description": "IR·NMR·질량 분석으로 구조 결정"},
+    "chem-coord": {"group": "화학", "competition": "KChO", "title": "배위화학", "description": "착화합물의 구조, 결정장 이론"},
+    "chem-lab": {"group": "화학", "competition": "KChO", "title": "실험 설계", "description": "정량 분석, 실험 설계와 오차"},
 }
 SCI_CHAPTERS = {
     "s1": {
         "phy-kin": ["차원 분석과 어림", "미분으로 보는 운동", "적분으로 보는 운동", "벡터와 포물선 운동"],
         "phy-dyn": ["뉴턴 법칙과 자유물체도", "일과 에너지", "운동량과 충돌", "원운동과 만유인력"],
         "phy-em": ["전기력과 전기장", "가우스 법칙과 전위", "축전기와 직류 회로", "자기장과 전자기 유도"],
+        "chem-stoich": ["몰과 화학식", "화학 반응식과 양적 관계", "용액의 농도", "기체"],
+        "chem-eq": ["평형 상수", "르샤틀리에 원리", "기체 평형", "용해 평형"],
+        "chem-acid": ["산과 염기의 정의", "pH와 약산·약염기", "완충 용액", "중화 적정"],
     },
     "s2": {
         "phy-rigid": ["강체의 회전", "단진동", "감쇠·강제 진동"],
         "phy-thermo": ["기체 분자 운동론", "열역학 법칙", "열기관과 엔트로피"],
         "phy-optics": ["기하 광학", "파동 광학"],
         "phy-exp": ["측정과 오차 전파", "그래프 분석과 선형화"],
+        "chem-thermo": ["엔탈피와 헤스 법칙", "엔트로피와 자유 에너지", "반응 속도식", "활성화 에너지와 반응 메커니즘"],
+        "chem-org": ["작용기와 명명", "치환과 제거 반응", "첨가 반응", "반응 메커니즘 쓰기"],
     },
     "s3": {
         "phy-modern": ["특수 상대론", "양자 기초"],
         "phy-lab": ["실험 문제 접근법", "모의 실험 과제"],
+        "chem-spec": ["적외선 분광법", "핵자기 공명", "질량 분석"],
+        "chem-coord": ["착화합물의 구조와 이성질체", "결정장 이론"],
+        "chem-lab": ["정량 분석", "실험 설계와 오차"],
     },
 }
-SCI_ORDER = ["phy-kin", "phy-dyn", "phy-em", "phy-rigid", "phy-thermo", "phy-optics", "phy-exp", "phy-modern", "phy-lab"]
+SCI_ORDER = ["phy-kin", "phy-dyn", "phy-em", "phy-rigid", "phy-thermo", "phy-optics", "phy-exp", "phy-modern", "phy-lab",
+             "chem-stoich", "chem-eq", "chem-acid", "chem-thermo", "chem-org", "chem-spec", "chem-coord", "chem-lab"]
 
 # 과목별 묶음. levels는 단계별 수준 문구, competition은 레슨 JSON의 대회 태그,
 # work는 서술형 문항 이름(math: 증명, sci: 풀이).
