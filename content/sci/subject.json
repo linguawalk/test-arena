@@ -77,7 +77,7 @@
           "title": "유전",
           "description": "세포 분열, 멘델 유전과 확장, 연관과 지도, 집단 유전",
           "chapters": 4,
-          "available": false,
+          "available": true,
           "group": "생물"
         }
       ]
