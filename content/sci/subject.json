@@ -93,7 +93,7 @@
           "title": "대기",
           "description": "대기 구조와 복사, 안정도와 구름, 대기 순환, 날씨",
           "chapters": 4,
-          "available": false,
+          "available": true,
           "group": "지구과학"
         },
         {
