@@ -79,6 +79,30 @@
           "chapters": 4,
           "available": true,
           "group": "생물"
+        },
+        {
+          "id": "earth-geo",
+          "title": "지질",
+          "description": "광물과 암석, 지구 내부, 판 구조론, 지질 시대",
+          "chapters": 4,
+          "available": true,
+          "group": "지구과학"
+        },
+        {
+          "id": "earth-atmo",
+          "title": "대기",
+          "description": "대기 구조와 복사, 안정도와 구름, 대기 순환, 날씨",
+          "chapters": 4,
+          "available": false,
+          "group": "지구과학"
+        },
+        {
+          "id": "earth-ocean",
+          "title": "해양",
+          "description": "해수의 성질, 해류, 파도와 조석, 해양과 기후",
+          "chapters": 4,
+          "available": false,
+          "group": "지구과학"
         }
       ]
     },
@@ -161,6 +185,22 @@
           "chapters": 4,
           "available": false,
           "group": "생물"
+        },
+        {
+          "id": "earth-system",
+          "title": "지구계 상호작용",
+          "description": "물질 순환, 에너지 수지, 기후 변화",
+          "chapters": 3,
+          "available": false,
+          "group": "지구과학"
+        },
+        {
+          "id": "earth-data",
+          "title": "자료 해석",
+          "description": "지질·기상·해양 자료 읽기와 해석",
+          "chapters": 2,
+          "available": false,
+          "group": "지구과학"
         }
       ]
     },

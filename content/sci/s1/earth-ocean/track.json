@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "subject": "sci",
+  "stage": "s1",
+  "track": {
+    "id": "earth-ocean",
+    "title": "해양",
+    "description": "해수의 성질, 해류, 파도와 조석, 해양과 기후",
+    "group": "지구과학"
+  },
+  "totals": {
+    "lessons": 0,
+    "lesson_questions": 0,
+    "review_questions": 0,
+    "questions": 0
+  },
+  "chapters": [
+    {
+      "no": 1,
+      "id": "sci-s1-earth-ocean-ch01",
+      "title": "해수의 성질",
+      "dir": "ch01",
+      "available": false
+    },
+    {
+      "no": 2,
+      "id": "sci-s1-earth-ocean-ch02",
+      "title": "해류와 해양 순환",
+      "dir": "ch02",
+      "available": false
+    },
+    {
+      "no": 3,
+      "id": "sci-s1-earth-ocean-ch03",
+      "title": "파도와 조석",
+      "dir": "ch03",
+      "available": false
+    },
+    {
+      "no": 4,
+      "id": "sci-s1-earth-ocean-ch04",
+      "title": "해양과 기후",
+      "dir": "ch04",
+      "available": false
+    }
+  ]
+}

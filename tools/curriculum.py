@@ -94,6 +94,13 @@ SCI_TRACKS = {
     "bio-eco": {"group": "생물", "competition": "KBO", "title": "생태와 진화", "description": "개체군과 군집, 생태계, 자연 선택과 계통"},
     "bio-info": {"group": "생물", "competition": "KBO", "title": "생물정보와 통계", "description": "서열 분석, 계통수 작성, 생물 통계"},
     "bio-lab": {"group": "생물", "competition": "KBO", "title": "실험 해석", "description": "실험 설계와 대조군, 자료 해석"},
+    # 지구과학 (KESO → IESO). 문서 2장 표: S1 지질·대기·해양 기초 / S2 지구계 상호작용, 자료 해석 /
+    # S3 야외조사형·팀 과제는 결정 사항(온라인 구현 범위)에 따라 제외
+    "earth-geo": {"group": "지구과학", "competition": "KESO", "title": "지질", "description": "광물과 암석, 지구 내부, 판 구조론, 지질 시대"},
+    "earth-atmo": {"group": "지구과학", "competition": "KESO", "title": "대기", "description": "대기 구조와 복사, 안정도와 구름, 대기 순환, 날씨"},
+    "earth-ocean": {"group": "지구과학", "competition": "KESO", "title": "해양", "description": "해수의 성질, 해류, 파도와 조석, 해양과 기후"},
+    "earth-system": {"group": "지구과학", "competition": "KESO", "title": "지구계 상호작용", "description": "물질 순환, 에너지 수지, 기후 변화"},
+    "earth-data": {"group": "지구과학", "competition": "KESO", "title": "자료 해석", "description": "지질·기상·해양 자료 읽기와 해석"},
 }
 SCI_CHAPTERS = {
     "s1": {
@@ -105,6 +112,9 @@ SCI_CHAPTERS = {
         "chem-acid": ["산과 염기의 정의", "pH와 약산·약염기", "완충 용액", "중화 적정"],
         "bio-cell": ["세포의 구조", "생체막과 물질 수송", "효소", "세포 호흡과 광합성"],
         "bio-gen": ["세포 분열과 염색체", "멘델 유전과 확장", "연관과 유전자 지도", "집단 유전"],
+        "earth-geo": ["광물과 암석", "지구 내부와 지진파", "판 구조론", "지질 시대와 연대 측정"],
+        "earth-atmo": ["대기의 구조와 복사", "대기 안정도와 구름", "대기 대순환과 바람", "기단과 날씨"],
+        "earth-ocean": ["해수의 성질", "해류와 해양 순환", "파도와 조석", "해양과 기후"],
     },
     "s2": {
         "phy-rigid": ["강체의 회전", "단진동", "감쇠·강제 진동"],
@@ -116,6 +126,8 @@ SCI_CHAPTERS = {
         "bio-mol": ["DNA 복제", "전사와 번역", "유전자 발현 조절", "생명공학 기법"],
         "bio-phys": ["신경과 근육", "순환과 호흡", "항상성과 내분비", "식물 생리"],
         "bio-eco": ["개체군과 군집", "생태계", "자연 선택과 진화", "계통과 분류"],
+        "earth-system": ["물질 순환", "지구 에너지 수지", "엘니뇨와 기후 변화"],
+        "earth-data": ["지질 자료 해석", "기상·해양 자료 해석"],
     },
     "s3": {
         "phy-modern": ["특수 상대론", "양자 기초"],
@@ -129,7 +141,8 @@ SCI_CHAPTERS = {
 }
 SCI_ORDER = ["phy-kin", "phy-dyn", "phy-em", "phy-rigid", "phy-thermo", "phy-optics", "phy-exp", "phy-modern", "phy-lab",
              "chem-stoich", "chem-eq", "chem-acid", "chem-thermo", "chem-org", "chem-spec", "chem-coord", "chem-lab",
-             "bio-cell", "bio-gen", "bio-mol", "bio-phys", "bio-eco", "bio-info", "bio-lab"]
+             "bio-cell", "bio-gen", "bio-mol", "bio-phys", "bio-eco", "bio-info", "bio-lab",
+             "earth-geo", "earth-atmo", "earth-ocean", "earth-system", "earth-data"]
 
 # 과목별 묶음. levels는 단계별 수준 문구, competition은 레슨 JSON의 대회 태그,
 # work는 서술형 문항 이름(math: 증명, sci: 풀이).

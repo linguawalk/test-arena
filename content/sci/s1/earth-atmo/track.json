@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "subject": "sci",
+  "stage": "s1",
+  "track": {
+    "id": "earth-atmo",
+    "title": "대기",
+    "description": "대기 구조와 복사, 안정도와 구름, 대기 순환, 날씨",
+    "group": "지구과학"
+  },
+  "totals": {
+    "lessons": 0,
+    "lesson_questions": 0,
+    "review_questions": 0,
+    "questions": 0
+  },
+  "chapters": [
+    {
+      "no": 1,
+      "id": "sci-s1-earth-atmo-ch01",
+      "title": "대기의 구조와 복사",
+      "dir": "ch01",
+      "available": false
+    },
+    {
+      "no": 2,
+      "id": "sci-s1-earth-atmo-ch02",
+      "title": "대기 안정도와 구름",
+      "dir": "ch02",
+      "available": false
+    },
+    {
+      "no": 3,
+      "id": "sci-s1-earth-atmo-ch03",
+      "title": "대기 대순환과 바람",
+      "dir": "ch03",
+      "available": false
+    },
+    {
+      "no": 4,
+      "id": "sci-s1-earth-atmo-ch04",
+      "title": "기단과 날씨",
+      "dir": "ch04",
+      "available": false
+    }
+  ]
+}
