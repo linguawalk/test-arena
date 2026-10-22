@@ -37,7 +37,7 @@
           "title": "전자기 기초",
           "description": "전기장, 가우스 법칙과 전위, 회로, 자기장과 유도",
           "chapters": 4,
-          "available": false,
+          "available": true,
           "group": "물리"
         }
       ]
