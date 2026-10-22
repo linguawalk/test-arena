@@ -86,6 +86,14 @@ SCI_TRACKS = {
     "chem-spec": {"group": "화학", "competition": "KChO", "title": "분광 분석", "description": "IR·NMR·질량 분석으로 구조 결정"},
     "chem-coord": {"group": "화학", "competition": "KChO", "title": "배위화학", "description": "착화합물의 구조, 결정장 이론"},
     "chem-lab": {"group": "화학", "competition": "KChO", "title": "실험 설계", "description": "정량 분석, 실험 설계와 오차"},
+    # 생물 (KBO → IBO). 문서 2장 표: S1 세포·유전 심화 / S2 분자생물학, 생리학, 생태·진화 / S3 생물정보·통계, 실험 해석
+    "bio-cell": {"group": "생물", "competition": "KBO", "title": "세포", "description": "세포 구조, 생체막과 수송, 효소, 세포 호흡과 광합성"},
+    "bio-gen": {"group": "생물", "competition": "KBO", "title": "유전", "description": "세포 분열, 멘델 유전과 확장, 연관과 지도, 집단 유전"},
+    "bio-mol": {"group": "생물", "competition": "KBO", "title": "분자생물학", "description": "DNA 복제, 전사·번역, 유전자 발현 조절, 생명공학 기법"},
+    "bio-phys": {"group": "생물", "competition": "KBO", "title": "생리학", "description": "신경과 근육, 순환·호흡, 항상성, 식물 생리"},
+    "bio-eco": {"group": "생물", "competition": "KBO", "title": "생태와 진화", "description": "개체군과 군집, 생태계, 자연 선택과 계통"},
+    "bio-info": {"group": "생물", "competition": "KBO", "title": "생물정보와 통계", "description": "서열 분석, 계통수 작성, 생물 통계"},
+    "bio-lab": {"group": "생물", "competition": "KBO", "title": "실험 해석", "description": "실험 설계와 대조군, 자료 해석"},
 }
 SCI_CHAPTERS = {
     "s1": {
@@ -95,6 +103,8 @@ SCI_CHAPTERS = {
         "chem-stoich": ["몰과 화학식", "화학 반응식과 양적 관계", "용액의 농도", "기체"],
         "chem-eq": ["평형 상수", "르샤틀리에 원리", "기체 평형", "용해 평형"],
         "chem-acid": ["산과 염기의 정의", "pH와 약산·약염기", "완충 용액", "중화 적정"],
+        "bio-cell": ["세포의 구조", "생체막과 물질 수송", "효소", "세포 호흡과 광합성"],
+        "bio-gen": ["세포 분열과 염색체", "멘델 유전과 확장", "연관과 유전자 지도", "집단 유전"],
     },
     "s2": {
         "phy-rigid": ["강체의 회전", "단진동", "감쇠·강제 진동"],
@@ -103,6 +113,9 @@ SCI_CHAPTERS = {
         "phy-exp": ["측정과 오차 전파", "그래프 분석과 선형화"],
         "chem-thermo": ["엔탈피와 헤스 법칙", "엔트로피와 자유 에너지", "반응 속도식", "활성화 에너지와 반응 메커니즘"],
         "chem-org": ["작용기와 명명", "치환과 제거 반응", "첨가 반응", "반응 메커니즘 쓰기"],
+        "bio-mol": ["DNA 복제", "전사와 번역", "유전자 발현 조절", "생명공학 기법"],
+        "bio-phys": ["신경과 근육", "순환과 호흡", "항상성과 내분비", "식물 생리"],
+        "bio-eco": ["개체군과 군집", "생태계", "자연 선택과 진화", "계통과 분류"],
     },
     "s3": {
         "phy-modern": ["특수 상대론", "양자 기초"],
@@ -110,10 +123,13 @@ SCI_CHAPTERS = {
         "chem-spec": ["적외선 분광법", "핵자기 공명", "질량 분석"],
         "chem-coord": ["착화합물의 구조와 이성질체", "결정장 이론"],
         "chem-lab": ["정량 분석", "실험 설계와 오차"],
+        "bio-info": ["서열 분석", "계통수 작성", "생물 통계"],
+        "bio-lab": ["실험 설계와 대조군", "자료 해석"],
     },
 }
 SCI_ORDER = ["phy-kin", "phy-dyn", "phy-em", "phy-rigid", "phy-thermo", "phy-optics", "phy-exp", "phy-modern", "phy-lab",
-             "chem-stoich", "chem-eq", "chem-acid", "chem-thermo", "chem-org", "chem-spec", "chem-coord", "chem-lab"]
+             "chem-stoich", "chem-eq", "chem-acid", "chem-thermo", "chem-org", "chem-spec", "chem-coord", "chem-lab",
+             "bio-cell", "bio-gen", "bio-mol", "bio-phys", "bio-eco", "bio-info", "bio-lab"]
 
 # 과목별 묶음. levels는 단계별 수준 문구, competition은 레슨 JSON의 대회 태그,
 # work는 서술형 문항 이름(math: 증명, sci: 풀이).

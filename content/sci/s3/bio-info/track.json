@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "subject": "sci",
+  "stage": "s3",
+  "track": {
+    "id": "bio-info",
+    "title": "생물정보와 통계",
+    "description": "서열 분석, 계통수 작성, 생물 통계",
+    "group": "생물"
+  },
+  "totals": {
+    "lessons": 0,
+    "lesson_questions": 0,
+    "review_questions": 0,
+    "questions": 0
+  },
+  "chapters": [
+    {
+      "no": 1,
+      "id": "sci-s3-bio-info-ch01",
+      "title": "서열 분석",
+      "dir": "ch01",
+      "available": false
+    },
+    {
+      "no": 2,
+      "id": "sci-s3-bio-info-ch02",
+      "title": "계통수 작성",
+      "dir": "ch02",
+      "available": false
+    },
+    {
+      "no": 3,
+      "id": "sci-s3-bio-info-ch03",
+      "title": "생물 통계",
+      "dir": "ch03",
+      "available": false
+    }
+  ]
+}

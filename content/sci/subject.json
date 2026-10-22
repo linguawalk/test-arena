@@ -63,6 +63,22 @@
           "chapters": 4,
           "available": true,
           "group": "화학"
+        },
+        {
+          "id": "bio-cell",
+          "title": "세포",
+          "description": "세포 구조, 생체막과 수송, 효소, 세포 호흡과 광합성",
+          "chapters": 4,
+          "available": true,
+          "group": "생물"
+        },
+        {
+          "id": "bio-gen",
+          "title": "유전",
+          "description": "세포 분열, 멘델 유전과 확장, 연관과 지도, 집단 유전",
+          "chapters": 4,
+          "available": false,
+          "group": "생물"
         }
       ]
     },
@@ -121,6 +137,30 @@
           "chapters": 4,
           "available": false,
           "group": "화학"
+        },
+        {
+          "id": "bio-mol",
+          "title": "분자생물학",
+          "description": "DNA 복제, 전사·번역, 유전자 발현 조절, 생명공학 기법",
+          "chapters": 4,
+          "available": false,
+          "group": "생물"
+        },
+        {
+          "id": "bio-phys",
+          "title": "생리학",
+          "description": "신경과 근육, 순환·호흡, 항상성, 식물 생리",
+          "chapters": 4,
+          "available": false,
+          "group": "생물"
+        },
+        {
+          "id": "bio-eco",
+          "title": "생태와 진화",
+          "description": "개체군과 군집, 생태계, 자연 선택과 계통",
+          "chapters": 4,
+          "available": false,
+          "group": "생물"
         }
       ]
     },
@@ -171,6 +211,22 @@
           "chapters": 2,
           "available": false,
           "group": "화학"
+        },
+        {
+          "id": "bio-info",
+          "title": "생물정보와 통계",
+          "description": "서열 분석, 계통수 작성, 생물 통계",
+          "chapters": 3,
+          "available": false,
+          "group": "생물"
+        },
+        {
+          "id": "bio-lab",
+          "title": "실험 해석",
+          "description": "실험 설계와 대조군, 자료 해석",
+          "chapters": 2,
+          "available": false,
+          "group": "생물"
         }
       ]
     }

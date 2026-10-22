@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "subject": "sci",
+  "stage": "s1",
+  "track": {
+    "id": "bio-gen",
+    "title": "유전",
+    "description": "세포 분열, 멘델 유전과 확장, 연관과 지도, 집단 유전",
+    "group": "생물"
+  },
+  "totals": {
+    "lessons": 0,
+    "lesson_questions": 0,
+    "review_questions": 0,
+    "questions": 0
+  },
+  "chapters": [
+    {
+      "no": 1,
+      "id": "sci-s1-bio-gen-ch01",
+      "title": "세포 분열과 염색체",
+      "dir": "ch01",
+      "available": false
+    },
+    {
+      "no": 2,
+      "id": "sci-s1-bio-gen-ch02",
+      "title": "멘델 유전과 확장",
+      "dir": "ch02",
+      "available": false
+    },
+    {
+      "no": 3,
+      "id": "sci-s1-bio-gen-ch03",
+      "title": "연관과 유전자 지도",
+      "dir": "ch03",
+      "available": false
+    },
+    {
+      "no": 4,
+      "id": "sci-s1-bio-gen-ch04",
+      "title": "집단 유전",
+      "dir": "ch04",
+      "available": false
+    }
+  ]
+}
