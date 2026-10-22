@@ -53,7 +53,7 @@
           "title": "화학 평형",
           "description": "평형 상수, 르샤틀리에 원리, 용해 평형",
           "chapters": 4,
-          "available": false,
+          "available": true,
           "group": "화학"
         },
         {
