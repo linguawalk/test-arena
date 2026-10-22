@@ -61,7 +61,7 @@
           "title": "산과 염기",
           "description": "pH, 약산·약염기, 완충 용액, 적정",
           "chapters": 4,
-          "available": false,
+          "available": true,
           "group": "화학"
         }
       ]
