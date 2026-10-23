@@ -101,7 +101,7 @@
           "title": "해양",
           "description": "해수의 성질, 해류, 파도와 조석, 해양과 기후",
           "chapters": 4,
-          "available": false,
+          "available": true,
           "group": "지구과학"
         }
       ]
