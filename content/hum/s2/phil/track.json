@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "subject": "hum",
+  "stage": "s2",
+  "track": {
+    "id": "phil",
+    "title": "철학",
+    "description": "논증과 오류, 윤리학·인식론·정치철학 에세이",
+    "group": null
+  },
+  "totals": {
+    "lessons": 0,
+    "lesson_questions": 0,
+    "review_questions": 0,
+    "questions": 0
+  },
+  "chapters": [
+    {
+      "no": 1,
+      "id": "hum-s2-phil-ch01",
+      "title": "철학 에세이의 구조",
+      "dir": "ch01",
+      "available": false
+    },
+    {
+      "no": 2,
+      "id": "hum-s2-phil-ch02",
+      "title": "윤리학 주제",
+      "dir": "ch02",
+      "available": false
+    },
+    {
+      "no": 3,
+      "id": "hum-s2-phil-ch03",
+      "title": "인식론 주제",
+      "dir": "ch03",
+      "available": false
+    },
+    {
+      "no": 4,
+      "id": "hum-s2-phil-ch04",
+      "title": "정치철학 주제",
+      "dir": "ch04",
+      "available": false
+    }
+  ]
+}

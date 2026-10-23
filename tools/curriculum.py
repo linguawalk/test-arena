@@ -190,6 +190,41 @@ INFO_CHAPTERS = {
 }
 INFO_ORDER = ["basic", "ds", "design", "graph", "mathstr"]
 
+# ---------------------------------------------------------------- 인문·사회 경시
+# 문서 4장 표: 철학(IPO)·언어학(IOL)·지리(iGeo)·경제(IEO)·역사. 팀 과제·야외조사·토론은 제외하고 개인 시험 부분만.
+# 대부분 서술형이라 자가 채점(모범 답안 + 채점 기준)이 중심이고, 판별·분석 문항은 번호나 빈칸으로 자동 채점한다.
+HUM_TRACKS = {
+    "phil": {"title": "철학", "competition": "IPO", "description": "논증과 오류, 윤리학·인식론·정치철학 에세이"},
+    "ling": {"title": "언어학", "competition": "IOL", "description": "낯선 언어의 음운·형태·통사·문자 체계 퍼즐"},
+    "geo": {"title": "지리", "competition": "iGeo", "description": "지도·사진·통계 자료 해석과 서술형"},
+    "econ": {"title": "경제", "competition": "IEO", "description": "미시·거시·금융 기초와 서술형"},
+    "hist": {"title": "역사", "competition": "역사 탐구·에세이", "description": "사료 읽기, 탐구 보고서, 역사 에세이"},
+}
+HUM_CHAPTERS = {
+    "s1": {
+        "phil": ["논증의 구조", "연역 논증", "귀납 논증", "비형식적 오류"],
+        "ling": ["형태 분석", "어순과 일치", "수 체계"],
+        "geo": ["지도 읽기", "사진 자료 해석", "통계 자료 해석"],
+        "econ": ["미시경제 기초", "거시경제 기초", "금융 기초"],
+        "hist": ["사료 읽기", "탐구 주제 설정"],
+    },
+    "s2": {
+        "phil": ["철학 에세이의 구조", "윤리학 주제", "인식론 주제", "정치철학 주제"],
+        "ling": ["음운 퍼즐", "형태 퍼즐", "통사 퍼즐", "문자 체계 퍼즐"],
+        "geo": ["자료 기반 서술형"],
+        "econ": ["경제·금융 서술형"],
+        "hist": ["한국사 사료 분석 탐구 보고서"],
+    },
+    "s3": {
+        "phil": ["외국어 철학 에세이", "4시간 실전 연습"],
+        "ling": ["개인전 실전"],
+        "geo": ["영어 서술형·멀티미디어 실전"],
+        "econ": ["객관식·서술형 실전"],
+        "hist": ["영어 역사 에세이"],
+    },
+}
+HUM_ORDER = ["phil", "ling", "geo", "econ", "hist"]
+
 # 과목별 묶음. levels는 단계별 수준 문구, competition은 레슨 JSON의 대회 태그,
 # work는 서술형 문항 이름(math: 증명, sci: 풀이).
 CURRICULUM = {
@@ -199,4 +234,6 @@ CURRICULUM = {
             "levels": {"s3": "IPhO 등 국제 대회 수준"}},
     "info": {"tracks": INFO_TRACKS, "chapters": INFO_CHAPTERS, "order": INFO_ORDER, "competition": "KOI", "work": "풀이",
              "levels": {"s3": "IOI 수준"}},
+    "hum": {"tracks": HUM_TRACKS, "chapters": HUM_CHAPTERS, "order": HUM_ORDER, "competition": "IPO", "work": "답안",
+            "levels": {"s3": "국제 대회 수준"}},
 }

@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "subject": "hum",
+  "stage": "s1",
+  "track": {
+    "id": "geo",
+    "title": "지리",
+    "description": "지도·사진·통계 자료 해석과 서술형",
+    "group": null
+  },
+  "totals": {
+    "lessons": 0,
+    "lesson_questions": 0,
+    "review_questions": 0,
+    "questions": 0
+  },
+  "chapters": [
+    {
+      "no": 1,
+      "id": "hum-s1-geo-ch01",
+      "title": "지도 읽기",
+      "dir": "ch01",
+      "available": false
+    },
+    {
+      "no": 2,
+      "id": "hum-s1-geo-ch02",
+      "title": "사진 자료 해석",
+      "dir": "ch02",
+      "available": false
+    },
+    {
+      "no": 3,
+      "id": "hum-s1-geo-ch03",
+      "title": "통계 자료 해석",
+      "dir": "ch03",
+      "available": false
+    }
+  ]
+}

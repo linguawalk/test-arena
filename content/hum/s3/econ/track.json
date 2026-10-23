@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "subject": "hum",
+  "stage": "s3",
+  "track": {
+    "id": "econ",
+    "title": "경제",
+    "description": "미시·거시·금융 기초와 서술형",
+    "group": null
+  },
+  "totals": {
+    "lessons": 0,
+    "lesson_questions": 0,
+    "review_questions": 0,
+    "questions": 0
+  },
+  "chapters": [
+    {
+      "no": 1,
+      "id": "hum-s3-econ-ch01",
+      "title": "객관식·서술형 실전",
+      "dir": "ch01",
+      "available": false
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "subject": "hum",
+  "stage": "s1",
+  "track": {
+    "id": "econ",
+    "title": "경제",
+    "description": "미시·거시·금융 기초와 서술형",
+    "group": null
+  },
+  "totals": {
+    "lessons": 0,
+    "lesson_questions": 0,
+    "review_questions": 0,
+    "questions": 0
+  },
+  "chapters": [
+    {
+      "no": 1,
+      "id": "hum-s1-econ-ch01",
+      "title": "미시경제 기초",
+      "dir": "ch01",
+      "available": false
+    },
+    {
+      "no": 2,
+      "id": "hum-s1-econ-ch02",
+      "title": "거시경제 기초",
+      "dir": "ch02",
+      "available": false
+    },
+    {
+      "no": 3,
+      "id": "hum-s1-econ-ch03",
+      "title": "금융 기초",
+      "dir": "ch03",
+      "available": false
+    }
+  ]
+}

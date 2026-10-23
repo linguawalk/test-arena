@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "subject": "hum",
+  "stage": "s2",
+  "track": {
+    "id": "ling",
+    "title": "언어학",
+    "description": "낯선 언어의 음운·형태·통사·문자 체계 퍼즐",
+    "group": null
+  },
+  "totals": {
+    "lessons": 0,
+    "lesson_questions": 0,
+    "review_questions": 0,
+    "questions": 0
+  },
+  "chapters": [
+    {
+      "no": 1,
+      "id": "hum-s2-ling-ch01",
+      "title": "음운 퍼즐",
+      "dir": "ch01",
+      "available": false
+    },
+    {
+      "no": 2,
+      "id": "hum-s2-ling-ch02",
+      "title": "형태 퍼즐",
+      "dir": "ch02",
+      "available": false
+    },
+    {
+      "no": 3,
+      "id": "hum-s2-ling-ch03",
+      "title": "통사 퍼즐",
+      "dir": "ch03",
+      "available": false
+    },
+    {
+      "no": 4,
+      "id": "hum-s2-ling-ch04",
+      "title": "문자 체계 퍼즐",
+      "dir": "ch04",
+      "available": false
+    }
+  ]
+}
