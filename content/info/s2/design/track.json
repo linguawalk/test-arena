@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "subject": "info",
+  "stage": "s2",
+  "track": {
+    "id": "design",
+    "title": "알고리즘 설계",
+    "description": "그리디, 동적 계획법, 분할 정복",
+    "group": null
+  },
+  "totals": {
+    "lessons": 0,
+    "lesson_questions": 0,
+    "review_questions": 0,
+    "questions": 0
+  },
+  "chapters": [
+    {
+      "no": 1,
+      "id": "info-s2-design-ch01",
+      "title": "분할 정복",
+      "dir": "ch01",
+      "available": false
+    },
+    {
+      "no": 2,
+      "id": "info-s2-design-ch02",
+      "title": "DP 최적화",
+      "dir": "ch02",
+      "available": false
+    }
+  ]
+}

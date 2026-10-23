@@ -21,7 +21,7 @@
       "title": "정보 올림피아드",
       "path": "KOI → IOI",
       "description": "자료구조·알고리즘 설계·그래프",
-      "available": false
+      "available": true
     },
     {
       "id": "hum",

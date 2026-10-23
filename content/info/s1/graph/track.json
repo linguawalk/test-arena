@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "subject": "info",
+  "stage": "s1",
+  "track": {
+    "id": "graph",
+    "title": "그래프",
+    "description": "BFS·DFS, 최단 경로, 최소 신장 트리, 위상 정렬",
+    "group": null
+  },
+  "totals": {
+    "lessons": 0,
+    "lesson_questions": 0,
+    "review_questions": 0,
+    "questions": 0
+  },
+  "chapters": [
+    {
+      "no": 1,
+      "id": "info-s1-graph-ch01",
+      "title": "그래프 표현",
+      "dir": "ch01",
+      "available": false
+    },
+    {
+      "no": 2,
+      "id": "info-s1-graph-ch02",
+      "title": "BFS와 DFS",
+      "dir": "ch02",
+      "available": false
+    },
+    {
+      "no": 3,
+      "id": "info-s1-graph-ch03",
+      "title": "최단 경로",
+      "dir": "ch03",
+      "available": false
+    }
+  ]
+}

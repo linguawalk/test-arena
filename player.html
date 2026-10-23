@@ -58,6 +58,7 @@ svg.pad:focus-visible{outline:3px solid var(--blue);outline-offset:4px;border-ra
 .solution{margin-top:6px}
 .solution ol{margin:4px 0 0;padding-left:1.3em}
 .solution li{margin:2px 0}
+.code{margin:18px 0;padding:14px 16px;background:#fff;border:1px solid var(--grid);border-left:4px solid var(--blue);border-radius:var(--radius-s);overflow-x:auto;font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;font-size:15px;line-height:1.6;white-space:pre;tab-size:4}
 .ex-problem{font-size:19px;line-height:1.7;margin:0 0 18px;padding:14px 16px;background:#fff;border:1px solid var(--grid);border-radius:var(--radius-m)}
 .ex-steps{margin:0;padding-left:1.4em;font-size:18px;line-height:1.75}
 .ex-steps li{margin:0 0 8px}
@@ -372,6 +373,10 @@ function geoFig(cfg){
   return svg;
 }
 
+function codeBlock(src){
+  const pre = document.createElement("pre"); pre.className = "code"; const c = document.createElement("code");
+  c.textContent = src; pre.appendChild(c); return pre;
+}
 function figure(f){
   const box = document.createElement("div"); box.className = "figure";
   const w = f.widget, c = f.config || {};
@@ -553,6 +558,7 @@ function show(){
     const h = document.createElement("h1"); h.textContent = s.title; main.appendChild(h);
     const b = document.createElement("div"); b.className = "body";
     s.body.forEach(t => { const p = document.createElement("p"); p.textContent = t; b.appendChild(p); }); main.appendChild(b);
+    if (s.code) main.appendChild(codeBlock(s.code));
     if (s.figure) main.appendChild(figure(s.figure));
     phase = "next"; mainBtn.textContent = "계속"; mainBtn.disabled = false; mainBtn.focus({preventScroll:true});
     return;
@@ -560,6 +566,7 @@ function show(){
   if (s.type === "example"){
     const h = document.createElement("h1"); h.textContent = s.title || "예제"; main.appendChild(h);
     const pb = document.createElement("div"); pb.className = "ex-problem"; pb.textContent = s.problem; main.appendChild(pb);
+    if (s.code) main.appendChild(codeBlock(s.code));
     if (s.figure) main.appendChild(figure(s.figure));
     const ol = document.createElement("ol"); ol.className = "ex-steps";
     s.steps.forEach(t => { const li = document.createElement("li"); li.textContent = t; li.hidden = true; ol.appendChild(li); }); main.appendChild(ol);
@@ -569,6 +576,7 @@ function show(){
   api = buildQuestion(s, main);
   if (lastConcept(idx)) conceptBtn.hidden = false;
   if (s.figure){ const pr = main.querySelector(".prompt"); if (pr) pr.after(figure(s.figure)); }
+  if (s.code){ const pr = main.querySelector(".prompt"); if (pr) pr.after(codeBlock(s.code)); }
   api.onChange = () => { if (phase === "check") mainBtn.disabled = !api.ready; };
   if (s.hint){ hintBtn.hidden = false; hintBtn.onclick = () => { if (main.querySelector(".hintbox")) return;
     const h = document.createElement("div"); h.className = "hintbox"; h.textContent = s.hint; main.appendChild(h); hintBtn.hidden = true; }; }

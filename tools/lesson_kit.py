@@ -3,6 +3,7 @@
 test-arena 전용 추가 형식
 - proof: 자가 채점 증명 문항
   prompt, model_answer(모범 증명 단계 배열), criteria([{text, points}]), hint, explanation(선택)
+- code: 설명·예제·문항 화면에 붙는 선택 필드. 고정폭 코드 블록으로 표시 (C 함수로 붙임)
 """
 
 
@@ -44,6 +45,13 @@ def PR(prompt, model, criteria, hint, stage="apply", expl=None):
          "criteria": [{"text": t, "points": p} for t, p in criteria], "hint": hint}
     if expl:
         s["explanation"] = expl
+    return s
+
+
+def C(screen, code):
+    """화면(설명·예제·문항)에 코드 블록을 붙인다. 코드는 고정폭 글꼴로 줄바꿈 그대로 표시된다."""
+    s = dict(screen)
+    s["code"] = code.strip("\n")
     return s
 
 

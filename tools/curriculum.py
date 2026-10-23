@@ -155,6 +155,41 @@ SCI_ORDER = ["phy-kin", "phy-dyn", "phy-em", "phy-rigid", "phy-thermo", "phy-opt
              "earth-geo", "earth-atmo", "earth-ocean", "earth-system", "earth-data",
              "astro-sphere", "astro-star", "astro-mech", "astro-data"]
 
+# ---------------------------------------------------------------- 정보 (KOI → IOI)
+# 문서 3장 표: 분야 5개 × S1~S3. 수학처럼 트랙(분야)이 단계마다 이어진다.
+# 채점은 1단계로 이론 중심: 코드 읽기·연산 횟수·복잡도·정당성 서술을 다루고 코드 제출은 외부 저지로 안내.
+INFO_TRACKS = {
+    "basic": {"title": "기초", "description": "시간복잡도, 정렬·이분 탐색, 완전 탐색, 정당성 증명"},
+    "ds": {"title": "자료구조", "description": "스택·큐·덱, 우선순위 큐, 세그먼트 트리, 유니온 파인드"},
+    "design": {"title": "알고리즘 설계", "description": "그리디, 동적 계획법, 분할 정복"},
+    "graph": {"title": "그래프", "description": "BFS·DFS, 최단 경로, 최소 신장 트리, 위상 정렬"},
+    "mathstr": {"title": "수학·문자열", "description": "정수론 기초, 조합론, 문자열 알고리즘"},
+}
+INFO_CHAPTERS = {
+    "s1": {
+        "basic": ["시간복잡도", "정렬", "이분 탐색", "완전 탐색"],
+        "ds": ["스택", "큐와 덱", "우선순위 큐"],
+        "design": ["그리디", "동적 계획법 입문", "동적 계획법 유형"],
+        "graph": ["그래프 표현", "BFS와 DFS", "최단 경로"],
+        "mathstr": ["소수와 약수", "GCD와 모듈러 연산"],
+    },
+    "s2": {
+        "basic": ["정당성 증명", "불변식과 귀납"],
+        "ds": ["세그먼트 트리", "유니온 파인드"],
+        "design": ["분할 정복", "DP 최적화"],
+        "graph": ["최소 신장 트리", "위상 정렬", "강한 연결 요소"],
+        "mathstr": ["조합론", "KMP", "해싱"],
+    },
+    "s3": {
+        "basic": ["출제 경향 분석", "모의고사"],
+        "ds": ["지연 전파", "영속 자료구조"],
+        "design": ["볼록 껍질 트릭", "고급 DP"],
+        "graph": ["네트워크 플로우", "이분 매칭"],
+        "mathstr": ["계산 기하", "접미사 배열"],
+    },
+}
+INFO_ORDER = ["basic", "ds", "design", "graph", "mathstr"]
+
 # 과목별 묶음. levels는 단계별 수준 문구, competition은 레슨 JSON의 대회 태그,
 # work는 서술형 문항 이름(math: 증명, sci: 풀이).
 CURRICULUM = {
@@ -162,4 +197,6 @@ CURRICULUM = {
              "levels": {"s3": "IMO 수준"}},
     "sci": {"tracks": SCI_TRACKS, "chapters": SCI_CHAPTERS, "order": SCI_ORDER, "competition": "KPhO", "work": "풀이",
             "levels": {"s3": "IPhO 등 국제 대회 수준"}},
+    "info": {"tracks": INFO_TRACKS, "chapters": INFO_CHAPTERS, "order": INFO_ORDER, "competition": "KOI", "work": "풀이",
+             "levels": {"s3": "IOI 수준"}},
 }

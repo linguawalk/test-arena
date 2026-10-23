@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "subject": "info",
+  "stage": "s1",
+  "track": {
+    "id": "design",
+    "title": "알고리즘 설계",
+    "description": "그리디, 동적 계획법, 분할 정복",
+    "group": null
+  },
+  "totals": {
+    "lessons": 0,
+    "lesson_questions": 0,
+    "review_questions": 0,
+    "questions": 0
+  },
+  "chapters": [
+    {
+      "no": 1,
+      "id": "info-s1-design-ch01",
+      "title": "그리디",
+      "dir": "ch01",
+      "available": false
+    },
+    {
+      "no": 2,
+      "id": "info-s1-design-ch02",
+      "title": "동적 계획법 입문",
+      "dir": "ch02",
+      "available": false
+    },
+    {
+      "no": 3,
+      "id": "info-s1-design-ch03",
+      "title": "동적 계획법 유형",
+      "dir": "ch03",
+      "available": false
+    }
+  ]
+}
