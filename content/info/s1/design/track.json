@@ -9,10 +9,10 @@
     "group": null
   },
   "totals": {
-    "lessons": 0,
-    "lesson_questions": 0,
-    "review_questions": 0,
-    "questions": 0
+    "lessons": 12,
+    "lesson_questions": 140,
+    "review_questions": 30,
+    "questions": 170
   },
   "chapters": [
     {
@@ -20,21 +20,30 @@
       "id": "info-s1-design-ch01",
       "title": "그리디",
       "dir": "ch01",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 46,
+      "review_questions": 10
     },
     {
       "no": 2,
       "id": "info-s1-design-ch02",
       "title": "동적 계획법 입문",
       "dir": "ch02",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 47,
+      "review_questions": 10
     },
     {
       "no": 3,
       "id": "info-s1-design-ch03",
       "title": "동적 계획법 유형",
       "dir": "ch03",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 47,
+      "review_questions": 10
     }
   ]
 }
