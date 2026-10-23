@@ -42,7 +42,7 @@
           "title": "그래프",
           "description": "BFS·DFS, 최단 경로, 최소 신장 트리, 위상 정렬",
           "chapters": 3,
-          "available": false
+          "available": true
         },
         {
           "id": "mathstr",

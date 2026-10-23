@@ -161,3 +161,25 @@ def mid(a, b):
 def on_circle(c, r, deg):
     import math
     return (c[0] + r * math.cos(math.radians(deg)), c[1] + r * math.sin(math.radians(deg)))
+
+
+def GF(alt, P, edges, directed=False, weights=None, hl=(), r=0.17, maxh=220):
+    """그래프 그림. P = {정점: (x, y)}, edges = [(u, v), ...].
+    정점은 번호가 든 작은 원, 간선은 선(방향 그래프는 화살표). weights = {(u, v): w}이면 간선 가운데에 가중치를 쓴다.
+    hl에 든 간선은 강조한다."""
+    import math
+    els = []
+    for (u, v) in edges:
+        (x1, y1), (x2, y2) = P[u], P[v]
+        L = math.hypot(x2 - x1, y2 - y1); ux, uy = (x2 - x1) / L, (y2 - y1) / L
+        a = (x1 + ux * r, y1 + uy * r); b = (x2 - ux * r, y2 - uy * r)
+        h = (u, v) in hl or (v, u) in hl
+        els.append(vec(a, b, hl=h) if directed else seg(a, b, hl=h))
+        if weights and ((u, v) in weights or (v, u) in weights):
+            w = weights.get((u, v), weights.get((v, u)))
+            mx, my = (x1 + x2) / 2, (y1 + y2) / 2
+            els.append(tx((mx - uy * 0.2, my + ux * 0.2), str(w), hl=h))
+    for k, (x, y) in P.items():
+        els.append(circ((x, y), r))
+        els.append(tx((x, y), str(k)))
+    return G(alt, *els, maxh=maxh)

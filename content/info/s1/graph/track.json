@@ -9,10 +9,10 @@
     "group": null
   },
   "totals": {
-    "lessons": 0,
-    "lesson_questions": 0,
-    "review_questions": 0,
-    "questions": 0
+    "lessons": 12,
+    "lesson_questions": 144,
+    "review_questions": 30,
+    "questions": 174
   },
   "chapters": [
     {
@@ -20,21 +20,30 @@
       "id": "info-s1-graph-ch01",
       "title": "그래프 표현",
       "dir": "ch01",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 48,
+      "review_questions": 10
     },
     {
       "no": 2,
       "id": "info-s1-graph-ch02",
       "title": "BFS와 DFS",
       "dir": "ch02",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 48,
+      "review_questions": 10
     },
     {
       "no": 3,
       "id": "info-s1-graph-ch03",
       "title": "최단 경로",
       "dir": "ch03",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 48,
+      "review_questions": 10
     }
   ]
 }
