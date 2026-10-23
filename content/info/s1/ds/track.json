@@ -9,10 +9,10 @@
     "group": null
   },
   "totals": {
-    "lessons": 0,
-    "lesson_questions": 0,
-    "review_questions": 0,
-    "questions": 0
+    "lessons": 12,
+    "lesson_questions": 139,
+    "review_questions": 30,
+    "questions": 169
   },
   "chapters": [
     {
@@ -20,21 +20,30 @@
       "id": "info-s1-ds-ch01",
       "title": "스택",
       "dir": "ch01",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 46,
+      "review_questions": 10
     },
     {
       "no": 2,
       "id": "info-s1-ds-ch02",
       "title": "큐와 덱",
       "dir": "ch02",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 45,
+      "review_questions": 10
     },
     {
       "no": 3,
       "id": "info-s1-ds-ch03",
       "title": "우선순위 큐",
       "dir": "ch03",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 48,
+      "review_questions": 10
     }
   ]
 }
