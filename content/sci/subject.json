@@ -103,6 +103,14 @@
           "chapters": 4,
           "available": true,
           "group": "지구과학"
+        },
+        {
+          "id": "astro-sphere",
+          "title": "천구와 좌표",
+          "description": "천구 좌표계, 구면삼각법, 시간과 역법, 천체의 운동",
+          "chapters": 4,
+          "available": true,
+          "group": "천문"
         }
       ]
     },
@@ -201,6 +209,22 @@
           "chapters": 2,
           "available": false,
           "group": "지구과학"
+        },
+        {
+          "id": "astro-star",
+          "title": "항성 물리",
+          "description": "등급과 거리, 항성의 복사, H-R도와 항성 진화",
+          "chapters": 3,
+          "available": false,
+          "group": "천문"
+        },
+        {
+          "id": "astro-mech",
+          "title": "천체역학",
+          "description": "케플러 법칙, 궤도 운동과 에너지, 쌍성과 질량",
+          "chapters": 3,
+          "available": false,
+          "group": "천문"
         }
       ]
     },
@@ -267,6 +291,14 @@
           "chapters": 2,
           "available": false,
           "group": "생물"
+        },
+        {
+          "id": "astro-data",
+          "title": "관측 자료 분석",
+          "description": "측광·분광 자료 분석, 관측 문제 접근법",
+          "chapters": 2,
+          "available": false,
+          "group": "천문"
         }
       ]
     }

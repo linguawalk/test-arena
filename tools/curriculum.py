@@ -101,6 +101,12 @@ SCI_TRACKS = {
     "earth-ocean": {"group": "지구과학", "competition": "KESO", "title": "해양", "description": "해수의 성질, 해류, 파도와 조석, 해양과 기후"},
     "earth-system": {"group": "지구과학", "competition": "KESO", "title": "지구계 상호작용", "description": "물질 순환, 에너지 수지, 기후 변화"},
     "earth-data": {"group": "지구과학", "competition": "KESO", "title": "자료 해석", "description": "지질·기상·해양 자료 읽기와 해석"},
+    # 천문 (국내 천문 → IOAA). 문서 2장 표: S1 천구 좌표, 구면삼각법 / S2 항성 물리, 천체역학 /
+    # S3 관측 자료 분석(실측 과제는 결정 사항(온라인 구현 범위)에 따라 제외)
+    "astro-sphere": {"group": "천문", "competition": "KAO", "title": "천구와 좌표", "description": "천구 좌표계, 구면삼각법, 시간과 역법, 천체의 운동"},
+    "astro-star": {"group": "천문", "competition": "KAO", "title": "항성 물리", "description": "등급과 거리, 항성의 복사, H-R도와 항성 진화"},
+    "astro-mech": {"group": "천문", "competition": "KAO", "title": "천체역학", "description": "케플러 법칙, 궤도 운동과 에너지, 쌍성과 질량"},
+    "astro-data": {"group": "천문", "competition": "KAO", "title": "관측 자료 분석", "description": "측광·분광 자료 분석, 관측 문제 접근법"},
 }
 SCI_CHAPTERS = {
     "s1": {
@@ -115,6 +121,7 @@ SCI_CHAPTERS = {
         "earth-geo": ["광물과 암석", "지구 내부와 지진파", "판 구조론", "지질 시대와 연대 측정"],
         "earth-atmo": ["대기의 구조와 복사", "대기 안정도와 구름", "대기 대순환과 바람", "기단과 날씨"],
         "earth-ocean": ["해수의 성질", "해류와 해양 순환", "파도와 조석", "해양과 기후"],
+        "astro-sphere": ["천구와 좌표계", "구면삼각법", "시간과 역법", "천체의 일주·연주 운동"],
     },
     "s2": {
         "phy-rigid": ["강체의 회전", "단진동", "감쇠·강제 진동"],
@@ -128,6 +135,8 @@ SCI_CHAPTERS = {
         "bio-eco": ["개체군과 군집", "생태계", "자연 선택과 진화", "계통과 분류"],
         "earth-system": ["물질 순환", "지구 에너지 수지", "엘니뇨와 기후 변화"],
         "earth-data": ["지질 자료 해석", "기상·해양 자료 해석"],
+        "astro-star": ["등급과 거리", "항성의 복사와 스펙트럼", "H-R도와 항성 진화"],
+        "astro-mech": ["케플러 법칙", "궤도 운동과 에너지", "쌍성과 질량 측정"],
     },
     "s3": {
         "phy-modern": ["특수 상대론", "양자 기초"],
@@ -137,12 +146,14 @@ SCI_CHAPTERS = {
         "chem-lab": ["정량 분석", "실험 설계와 오차"],
         "bio-info": ["서열 분석", "계통수 작성", "생물 통계"],
         "bio-lab": ["실험 설계와 대조군", "자료 해석"],
+        "astro-data": ["측광·분광 자료 분석", "관측 문제 접근법"],
     },
 }
 SCI_ORDER = ["phy-kin", "phy-dyn", "phy-em", "phy-rigid", "phy-thermo", "phy-optics", "phy-exp", "phy-modern", "phy-lab",
              "chem-stoich", "chem-eq", "chem-acid", "chem-thermo", "chem-org", "chem-spec", "chem-coord", "chem-lab",
              "bio-cell", "bio-gen", "bio-mol", "bio-phys", "bio-eco", "bio-info", "bio-lab",
-             "earth-geo", "earth-atmo", "earth-ocean", "earth-system", "earth-data"]
+             "earth-geo", "earth-atmo", "earth-ocean", "earth-system", "earth-data",
+             "astro-sphere", "astro-star", "astro-mech", "astro-data"]
 
 # 과목별 묶음. levels는 단계별 수준 문구, competition은 레슨 JSON의 대회 태그,
 # work는 서술형 문항 이름(math: 증명, sci: 풀이).

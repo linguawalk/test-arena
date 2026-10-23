@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "subject": "sci",
+  "stage": "s2",
+  "track": {
+    "id": "astro-mech",
+    "title": "천체역학",
+    "description": "케플러 법칙, 궤도 운동과 에너지, 쌍성과 질량",
+    "group": "천문"
+  },
+  "totals": {
+    "lessons": 0,
+    "lesson_questions": 0,
+    "review_questions": 0,
+    "questions": 0
+  },
+  "chapters": [
+    {
+      "no": 1,
+      "id": "sci-s2-astro-mech-ch01",
+      "title": "케플러 법칙",
+      "dir": "ch01",
+      "available": false
+    },
+    {
+      "no": 2,
+      "id": "sci-s2-astro-mech-ch02",
+      "title": "궤도 운동과 에너지",
+      "dir": "ch02",
+      "available": false
+    },
+    {
+      "no": 3,
+      "id": "sci-s2-astro-mech-ch03",
+      "title": "쌍성과 질량 측정",
+      "dir": "ch03",
+      "available": false
+    }
+  ]
+}
