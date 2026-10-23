@@ -9,10 +9,10 @@
     "group": null
   },
   "totals": {
-    "lessons": 0,
-    "lesson_questions": 0,
-    "review_questions": 0,
-    "questions": 0
+    "lessons": 8,
+    "lesson_questions": 94,
+    "review_questions": 20,
+    "questions": 114
   },
   "chapters": [
     {
@@ -20,14 +20,20 @@
       "id": "info-s1-mathstr-ch01",
       "title": "소수와 약수",
       "dir": "ch01",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 47,
+      "review_questions": 10
     },
     {
       "no": 2,
       "id": "info-s1-mathstr-ch02",
       "title": "GCD와 모듈러 연산",
       "dir": "ch02",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 47,
+      "review_questions": 10
     }
   ]
 }
