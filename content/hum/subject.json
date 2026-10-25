@@ -28,7 +28,7 @@
           "title": "언어학",
           "description": "낯선 언어의 음운·형태·통사·문자 체계 퍼즐",
           "chapters": 3,
-          "available": false
+          "available": true
         },
         {
           "id": "geo",
