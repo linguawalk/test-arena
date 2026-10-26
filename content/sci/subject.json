@@ -135,7 +135,7 @@
           "title": "열역학",
           "description": "기체 분자 운동론, 열역학 법칙, 열기관",
           "chapters": 3,
-          "available": false,
+          "available": true,
           "group": "물리"
         },
         {

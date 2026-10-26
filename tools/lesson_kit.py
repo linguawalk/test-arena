@@ -146,6 +146,23 @@ def pw(*pts, color=None, label=None, at=None):
     return c
 
 
+def path(*pts, closed=False, color=None, label=None, at=None):
+    """좌표 순서대로 잇는 꺾은선(x가 되돌아가도 됨). 순환 과정처럼 닫힌 곡선은 closed=True."""
+    c = {"kind": "path", "pts": [[round(x, 4), round(y, 4)] for x, y in pts]}
+    if closed: c["closed"] = True
+    if color: c["color"] = color
+    if label: c["label"] = label; c["at"] = list(at)
+    return c
+
+
+def arrow(a, b, color=None, label=None):
+    """그래프 좌표의 짧은 화살표(순환 방향 표시 등)."""
+    c = {"kind": "arrow", "x1": a[0], "y1": a[1], "x2": b[0], "y2": b[1]}
+    if color: c["color"] = color
+    if label: c["label"] = label
+    return c
+
+
 def with_fig(screen, fig):
     screen["figure"] = fig
     return screen
