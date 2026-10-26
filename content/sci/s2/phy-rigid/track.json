@@ -9,10 +9,10 @@
     "group": "물리"
   },
   "totals": {
-    "lessons": 0,
-    "lesson_questions": 0,
-    "review_questions": 0,
-    "questions": 0
+    "lessons": 12,
+    "lesson_questions": 132,
+    "review_questions": 30,
+    "questions": 162
   },
   "chapters": [
     {
@@ -20,21 +20,30 @@
       "id": "sci-s2-phy-rigid-ch01",
       "title": "강체의 회전",
       "dir": "ch01",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 44,
+      "review_questions": 10
     },
     {
       "no": 2,
       "id": "sci-s2-phy-rigid-ch02",
       "title": "단진동",
       "dir": "ch02",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 44,
+      "review_questions": 10
     },
     {
       "no": 3,
       "id": "sci-s2-phy-rigid-ch03",
       "title": "감쇠·강제 진동",
       "dir": "ch03",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 44,
+      "review_questions": 10
     }
   ]
 }
