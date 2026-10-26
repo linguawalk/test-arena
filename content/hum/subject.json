@@ -49,7 +49,7 @@
           "title": "역사",
           "description": "사료 읽기, 탐구 보고서, 역사 에세이",
           "chapters": 2,
-          "available": false
+          "available": true
         }
       ]
     },
