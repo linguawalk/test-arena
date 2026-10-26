@@ -9,10 +9,10 @@
     "group": null
   },
   "totals": {
-    "lessons": 0,
-    "lesson_questions": 0,
-    "review_questions": 0,
-    "questions": 0
+    "lessons": 12,
+    "lesson_questions": 132,
+    "review_questions": 30,
+    "questions": 162
   },
   "chapters": [
     {
@@ -20,21 +20,30 @@
       "id": "math-s2-geo-ch01",
       "title": "체바·메넬라오스 정리",
       "dir": "ch01",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 44,
+      "review_questions": 10
     },
     {
       "no": 2,
       "id": "math-s2-geo-ch02",
       "title": "근축과 방멱",
       "dir": "ch02",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 44,
+      "review_questions": 10
     },
     {
       "no": 3,
       "id": "math-s2-geo-ch03",
       "title": "반전 기초",
       "dir": "ch03",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 44,
+      "review_questions": 10
     }
   ]
 }
