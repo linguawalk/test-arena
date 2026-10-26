@@ -42,7 +42,7 @@
           "title": "경제",
           "description": "미시·거시·금융 기초와 서술형",
           "chapters": 3,
-          "available": false
+          "available": true
         },
         {
           "id": "hist",
