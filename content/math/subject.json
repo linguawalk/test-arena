@@ -87,7 +87,7 @@
           "title": "조합",
           "description": "세기, 비둘기집 원리, 포함-배제, 그래프",
           "chapters": 3,
-          "available": false
+          "available": true
         },
         {
           "id": "geo",
