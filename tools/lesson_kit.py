@@ -138,9 +138,11 @@ def GR(alt, xmin, xmax, ymin, ymax, curves, xstep=1, ystep=1, xlabel="t", ylabel
     return {"widget": "graph", "config": c, "static": True}
 
 
-def pw(*pts, color=None):
+def pw(*pts, color=None, label=None, at=None):
+    """꺾은선. label을 주면 그래프 좌표 at=(x, y)에 곡선과 같은 색으로 이름을 쓴다."""
     c = {"kind": "pw", "pts": [list(p) for p in pts]}
     if color: c["color"] = color
+    if label: c["label"] = label; c["at"] = list(at)
     return c
 
 

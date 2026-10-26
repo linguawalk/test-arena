@@ -250,6 +250,7 @@ function drawCurves(svg, cfg, X, Y, pad, S){
       d += (prev === null || jump ? " M" : " L") + `${X(t).toFixed(1)} ${Y(v).toFixed(1)}`; prev = v;
     }
     el("path", {d, fill:"none", stroke:col, "stroke-width":2.5, "stroke-linejoin":"round"}, g);
+    if (c.label && c.at) txt(g, X(c.at[0]), Y(c.at[1]), c.label, {fill:col, "font-size":15, "font-weight":500, "text-anchor":"start"});
   });
 }
 
