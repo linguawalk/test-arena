@@ -199,7 +199,7 @@
           "title": "지구계 상호작용",
           "description": "물질 순환, 에너지 수지, 기후 변화",
           "chapters": 3,
-          "available": false,
+          "available": true,
           "group": "지구과학"
         },
         {
