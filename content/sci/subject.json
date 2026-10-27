@@ -151,7 +151,7 @@
           "title": "실험과 오차",
           "description": "측정과 오차 전파, 그래프 분석",
           "chapters": 2,
-          "available": false,
+          "available": true,
           "group": "물리"
         },
         {
