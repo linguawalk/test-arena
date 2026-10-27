@@ -159,7 +159,7 @@
           "title": "열역학과 반응 속도",
           "description": "엔탈피·엔트로피·자유 에너지, 속도 법칙",
           "chapters": 4,
-          "available": false,
+          "available": true,
           "group": "화학"
         },
         {
