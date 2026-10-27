@@ -191,7 +191,7 @@
           "title": "생태와 진화",
           "description": "개체군과 군집, 생태계, 자연 선택과 계통",
           "chapters": 4,
-          "available": false,
+          "available": true,
           "group": "생물"
         },
         {
