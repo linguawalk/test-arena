@@ -175,7 +175,7 @@
           "title": "분자생물학",
           "description": "DNA 복제, 전사·번역, 유전자 발현 조절, 생명공학 기법",
           "chapters": 4,
-          "available": false,
+          "available": true,
           "group": "생물"
         },
         {
