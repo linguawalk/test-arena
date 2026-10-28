@@ -207,7 +207,7 @@
           "title": "자료 해석",
           "description": "지질·기상·해양 자료 읽기와 해석",
           "chapters": 2,
-          "available": false,
+          "available": true,
           "group": "지구과학"
         },
         {
