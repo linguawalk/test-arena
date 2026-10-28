@@ -9,10 +9,10 @@
     "group": null
   },
   "totals": {
-    "lessons": 0,
-    "lesson_questions": 0,
-    "review_questions": 0,
-    "questions": 0
+    "lessons": 12,
+    "lesson_questions": 140,
+    "review_questions": 30,
+    "questions": 170
   },
   "chapters": [
     {
@@ -20,21 +20,30 @@
       "id": "info-s2-graph-ch01",
       "title": "최소 신장 트리",
       "dir": "ch01",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 47,
+      "review_questions": 10
     },
     {
       "no": 2,
       "id": "info-s2-graph-ch02",
       "title": "위상 정렬",
       "dir": "ch02",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 45,
+      "review_questions": 10
     },
     {
       "no": 3,
       "id": "info-s2-graph-ch03",
       "title": "강한 연결 요소",
       "dir": "ch03",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 48,
+      "review_questions": 10
     }
   ]
 }
