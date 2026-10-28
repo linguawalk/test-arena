@@ -9,10 +9,10 @@
     "group": "천문"
   },
   "totals": {
-    "lessons": 0,
-    "lesson_questions": 0,
-    "review_questions": 0,
-    "questions": 0
+    "lessons": 12,
+    "lesson_questions": 132,
+    "review_questions": 30,
+    "questions": 162
   },
   "chapters": [
     {
@@ -20,21 +20,30 @@
       "id": "sci-s2-astro-star-ch01",
       "title": "등급과 거리",
       "dir": "ch01",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 44,
+      "review_questions": 10
     },
     {
       "no": 2,
       "id": "sci-s2-astro-star-ch02",
       "title": "항성의 복사와 스펙트럼",
       "dir": "ch02",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 44,
+      "review_questions": 10
     },
     {
       "no": 3,
       "id": "sci-s2-astro-star-ch03",
       "title": "H-R도와 항성 진화",
       "dir": "ch03",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 44,
+      "review_questions": 10
     }
   ]
 }

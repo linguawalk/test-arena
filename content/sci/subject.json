@@ -215,7 +215,7 @@
           "title": "항성 물리",
           "description": "등급과 거리, 항성의 복사, H-R도와 항성 진화",
           "chapters": 3,
-          "available": false,
+          "available": true,
           "group": "천문"
         },
         {
