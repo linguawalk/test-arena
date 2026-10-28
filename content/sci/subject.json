@@ -223,7 +223,7 @@
           "title": "천체역학",
           "description": "케플러 법칙, 궤도 운동과 에너지, 쌍성과 질량",
           "chapters": 3,
-          "available": false,
+          "available": true,
           "group": "천문"
         }
       ]
