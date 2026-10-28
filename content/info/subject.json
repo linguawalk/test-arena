@@ -73,7 +73,7 @@
           "title": "자료구조",
           "description": "스택·큐·덱, 우선순위 큐, 세그먼트 트리, 유니온 파인드",
           "chapters": 2,
-          "available": false
+          "available": true
         },
         {
           "id": "design",
