@@ -80,7 +80,7 @@
           "title": "알고리즘 설계",
           "description": "그리디, 동적 계획법, 분할 정복",
           "chapters": 2,
-          "available": false
+          "available": true
         },
         {
           "id": "graph",
