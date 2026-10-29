@@ -657,7 +657,7 @@ function finish(){
   const id = IS_REVIEW ? data.review.id : data.lesson.id;
   store.put(id, {done:true, first:firstRight, total:qCount, at:Date.now()});
   const nxt = nextTarget();
-  main.innerHTML = `<div class="done"><p class="stage">${IS_REVIEW ? "복습 완료" : "레슨 완료"}</p>
+  main.innerHTML = `<div class="done"><p class="stage">${IS_REVIEW ? "복습 완료" : (data.lesson.kind === "guide" ? "가이드 완료" : "레슨 완료")}</p>
     <h1></h1><p class="score">${firstRight}<small> / ${qCount}</small></p>
     <p class="body" style="font-size:17px;color:var(--ink-soft)">한 번에 맞힌 문항 수입니다.</p></div>`;
   main.querySelector("h1").textContent = IS_REVIEW ? data.review.title : data.lesson.title;

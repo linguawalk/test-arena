@@ -104,14 +104,14 @@
       "title": "S3 국제",
       "level": "IMO 수준",
       "description": "목차와 학습 가이드 중심으로 독학합니다.",
-      "available": false,
+      "available": true,
       "tracks": [
         {
           "id": "proof",
           "title": "증명의 기초",
           "description": "명제와 증명, 수학적 귀납법, 답안 쓰기",
           "chapters": 2,
-          "available": false
+          "available": true
         },
         {
           "id": "alg",

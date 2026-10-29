@@ -17,6 +17,8 @@ OUT = os.path.join(ROOT, "content")
 # 제작 기준 (content/README.md와 같게 유지)
 RULE = {"screens": (16, 22), "questions": (11, 13), "proofs_min": 2, "expl_chars": 60, "expl_steps": 3,
         "explain_chars": 160, "review_questions": 10, "review_proofs_min": 1}
+# S3 학습 가이드: 챕터마다 가이드 1개(복습 없음). 핵심 도구 설명·예제·확인 문항·증명 문제·독학 안내.
+GUIDE_RULE = {"screens": (14, 24), "proofs_min": 5, "graded_min": 2, "examples_min": 2}
 GRADED = {"numeric", "fill_blank", "ordering", "diagram"}
 
 
@@ -79,6 +81,26 @@ def check_lesson(screens, where, errors):
             check_question(s, f"{where} 화면 {k}", errors)
 
 
+def check_guide(screens, where, errors):
+    qs = [s for s in screens if s["type"] == "question"]
+    lo, hi = GUIDE_RULE["screens"]
+    if not lo <= len(screens) <= hi:
+        errors.append(f"{where}: 화면 {len(screens)}개 (가이드 기준 {lo}~{hi})")
+    if sum(q["qtype"] == "proof" for q in qs) < GUIDE_RULE["proofs_min"]:
+        errors.append(f"{where}: 증명 문제 {GUIDE_RULE['proofs_min']}개 미만")
+    if sum(q["qtype"] in GRADED for q in qs) < GUIDE_RULE["graded_min"]:
+        errors.append(f"{where}: 확인 문항 {GUIDE_RULE['graded_min']}개 미만")
+    if sum(s["type"] == "example" for s in screens) < GUIDE_RULE["examples_min"]:
+        errors.append(f"{where}: 예제 {GUIDE_RULE['examples_min']}개 미만")
+    for k, s in enumerate(screens, 1):
+        if s["type"] == "explain" and len("".join(s["body"])) < RULE["explain_chars"]:
+            errors.append(f"{where} 화면 {k}: 설명 {RULE['explain_chars']}자 미만")
+        if s["type"] == "example" and len(s["steps"]) < 3:
+            errors.append(f"{where} 화면 {k}: 예제 풀이 3단계 미만")
+        if s["type"] == "question":
+            check_question(s, f"{where} 화면 {k}", errors)
+
+
 def number(screens, prefix=""):
     cnt = {"explain": 0, "example": 0, "question": 0}
     tag = {"explain": "s", "example": "e", "question": "q"}
@@ -108,21 +130,30 @@ def build_subject(subj, errors):
                     chdir = os.path.join(OUT, subj, sid, tid, f"ch{no:02d}")
                     meta = {"subject": subj, "stage": sid, "track": tid, "work": cur["work"]}
                     lessons_meta = []
-                    for k, L in enumerate(m.LESSONS, 1):
+                    guide = getattr(m, "GUIDE", None)
+                    for k, L in enumerate([guide] if guide else m.LESSONS, 1):
                         lid = f"{ch_id}-l{k:02d}"
                         where = f"{lid}"
-                        check_lesson(L["screens"], where, errors)
+                        (check_guide if guide else check_lesson)(L["screens"], where, errors)
                         screens = number(L["screens"])
                         nq = sum(s["type"] == "question" for s in screens)
                         write(os.path.join(chdir, f"l{k:02d}.json"), {
                             "schema_version": "1.0", "site": "test-arena", **meta,
                             "track_title": TR[tid]["title"],
                             "chapter": {"id": ch_id, "no": no, "title": title},
-                            "lesson": {"id": lid, "no": k, "title": L["title"], "minutes": L["minutes"]},
+                            "lesson": {"id": lid, "no": k, "title": L["title"], "minutes": L["minutes"], **({"kind": "guide"} if guide else {})},
                             "tags": {"domain": m.DOMAIN, "competition": TR[tid].get("competition", cur["competition"]), "stage": sid},
                             "screens": screens})
                         lessons_meta.append({"no": k, "id": lid, "title": L["title"], "file": f"l{k:02d}.json",
-                                             "questions": nq, "screens": len(screens)})
+                                             "questions": nq, "screens": len(screens), **({"kind": "guide"} if guide else {})})
+                    if guide:
+                        write(os.path.join(chdir, "chapter.json"), {
+                            "schema_version": "1.0", **meta, "chapter": {"id": ch_id, "no": no, "title": title},
+                            "kind": "guide", "lessons": lessons_meta})
+                        entry.update({"kind": "guide", "lessons": 1, "lesson_questions": lessons_meta[0]["questions"], "review_questions": 0})
+                        tot["lessons"] += 1; tot["lesson_questions"] += entry["lesson_questions"]
+                        chapters.append(entry)
+                        continue
                     R = m.REVIEW
                     rqs = []
                     for k, (src_l, q) in enumerate(R["questions"], 1):
