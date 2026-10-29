@@ -94,7 +94,7 @@
           "title": "수학·문자열",
           "description": "정수론 기초, 조합론, 문자열 알고리즘",
           "chapters": 3,
-          "available": false
+          "available": true
         }
       ]
     },
