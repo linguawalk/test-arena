@@ -9,10 +9,10 @@
     "group": null
   },
   "totals": {
-    "lessons": 0,
-    "lesson_questions": 0,
-    "review_questions": 0,
-    "questions": 0
+    "lessons": 4,
+    "lesson_questions": 47,
+    "review_questions": 10,
+    "questions": 57
   },
   "chapters": [
     {
@@ -20,7 +20,10 @@
       "id": "hum-s2-geo-ch01",
       "title": "자료 기반 서술형",
       "dir": "ch01",
-      "available": false
+      "available": true,
+      "lessons": 4,
+      "lesson_questions": 47,
+      "review_questions": 10
     }
   ]
 }

@@ -80,7 +80,7 @@
           "title": "지리",
           "description": "지도·사진·통계 자료 해석과 서술형",
           "chapters": 1,
-          "available": false
+          "available": true
         },
         {
           "id": "econ",
