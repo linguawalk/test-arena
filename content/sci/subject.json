@@ -234,14 +234,14 @@
       "title": "S3 국제",
       "level": "IPhO 등 국제 대회 수준",
       "description": "목차와 학습 가이드 중심으로 독학합니다.",
-      "available": false,
+      "available": true,
       "tracks": [
         {
           "id": "phy-modern",
           "title": "현대 물리",
           "description": "특수 상대론, 양자 기초",
           "chapters": 2,
-          "available": false,
+          "available": true,
           "group": "물리"
         },
         {
@@ -249,7 +249,7 @@
           "title": "실험 문제",
           "description": "실험 문제 접근법, 모의 실험 과제",
           "chapters": 2,
-          "available": false,
+          "available": true,
           "group": "물리"
         },
         {
