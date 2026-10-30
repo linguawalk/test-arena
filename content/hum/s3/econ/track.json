@@ -9,10 +9,10 @@
     "group": null
   },
   "totals": {
-    "lessons": 0,
-    "lesson_questions": 0,
+    "lessons": 1,
+    "lesson_questions": 9,
     "review_questions": 0,
-    "questions": 0
+    "questions": 9
   },
   "chapters": [
     {
@@ -20,7 +20,11 @@
       "id": "hum-s3-econ-ch01",
       "title": "객관식·서술형 실전",
       "dir": "ch01",
-      "available": false
+      "available": true,
+      "kind": "guide",
+      "lessons": 1,
+      "lesson_questions": 9,
+      "review_questions": 0
     }
   ]
 }

@@ -104,42 +104,42 @@
       "title": "S3 국제",
       "level": "국제 대회 수준",
       "description": "목차와 학습 가이드 중심으로 독학합니다.",
-      "available": false,
+      "available": true,
       "tracks": [
         {
           "id": "phil",
           "title": "철학",
           "description": "논증과 오류, 윤리학·인식론·정치철학 에세이",
           "chapters": 2,
-          "available": false
+          "available": true
         },
         {
           "id": "ling",
           "title": "언어학",
           "description": "낯선 언어의 음운·형태·통사·문자 체계 퍼즐",
           "chapters": 1,
-          "available": false
+          "available": true
         },
         {
           "id": "geo",
           "title": "지리",
           "description": "지도·사진·통계 자료 해석과 서술형",
           "chapters": 1,
-          "available": false
+          "available": true
         },
         {
           "id": "econ",
           "title": "경제",
           "description": "미시·거시·금융 기초와 서술형",
           "chapters": 1,
-          "available": false
+          "available": true
         },
         {
           "id": "hist",
           "title": "역사",
           "description": "사료 읽기, 탐구 보고서, 역사 에세이",
           "chapters": 1,
-          "available": false
+          "available": true
         }
       ]
     }
