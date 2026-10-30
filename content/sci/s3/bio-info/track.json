@@ -9,10 +9,10 @@
     "group": "생물"
   },
   "totals": {
-    "lessons": 0,
-    "lesson_questions": 0,
+    "lessons": 3,
+    "lesson_questions": 23,
     "review_questions": 0,
-    "questions": 0
+    "questions": 23
   },
   "chapters": [
     {
@@ -20,21 +20,33 @@
       "id": "sci-s3-bio-info-ch01",
       "title": "서열 분석",
       "dir": "ch01",
-      "available": false
+      "available": true,
+      "kind": "guide",
+      "lessons": 1,
+      "lesson_questions": 7,
+      "review_questions": 0
     },
     {
       "no": 2,
       "id": "sci-s3-bio-info-ch02",
       "title": "계통수 작성",
       "dir": "ch02",
-      "available": false
+      "available": true,
+      "kind": "guide",
+      "lessons": 1,
+      "lesson_questions": 8,
+      "review_questions": 0
     },
     {
       "no": 3,
       "id": "sci-s3-bio-info-ch03",
       "title": "생물 통계",
       "dir": "ch03",
-      "available": false
+      "available": true,
+      "kind": "guide",
+      "lessons": 1,
+      "lesson_questions": 8,
+      "review_questions": 0
     }
   ]
 }

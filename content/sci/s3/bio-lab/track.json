@@ -9,10 +9,10 @@
     "group": "생물"
   },
   "totals": {
-    "lessons": 0,
-    "lesson_questions": 0,
+    "lessons": 2,
+    "lesson_questions": 16,
     "review_questions": 0,
-    "questions": 0
+    "questions": 16
   },
   "chapters": [
     {
@@ -20,14 +20,22 @@
       "id": "sci-s3-bio-lab-ch01",
       "title": "실험 설계와 대조군",
       "dir": "ch01",
-      "available": false
+      "available": true,
+      "kind": "guide",
+      "lessons": 1,
+      "lesson_questions": 7,
+      "review_questions": 0
     },
     {
       "no": 2,
       "id": "sci-s3-bio-lab-ch02",
       "title": "자료 해석",
       "dir": "ch02",
-      "available": false
+      "available": true,
+      "kind": "guide",
+      "lessons": 1,
+      "lesson_questions": 9,
+      "review_questions": 0
     }
   ]
 }

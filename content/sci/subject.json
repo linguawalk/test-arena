@@ -281,7 +281,7 @@
           "title": "생물정보와 통계",
           "description": "서열 분석, 계통수 작성, 생물 통계",
           "chapters": 3,
-          "available": false,
+          "available": true,
           "group": "생물"
         },
         {
@@ -289,7 +289,7 @@
           "title": "실험 해석",
           "description": "실험 설계와 대조군, 자료 해석",
           "chapters": 2,
-          "available": false,
+          "available": true,
           "group": "생물"
         },
         {
