@@ -257,7 +257,7 @@
           "title": "분광 분석",
           "description": "IR·NMR·질량 분석으로 구조 결정",
           "chapters": 3,
-          "available": false,
+          "available": true,
           "group": "화학"
         },
         {
@@ -265,7 +265,7 @@
           "title": "배위화학",
           "description": "착화합물의 구조, 결정장 이론",
           "chapters": 2,
-          "available": false,
+          "available": true,
           "group": "화학"
         },
         {
@@ -273,7 +273,7 @@
           "title": "실험 설계",
           "description": "정량 분석, 실험 설계와 오차",
           "chapters": 2,
-          "available": false,
+          "available": true,
           "group": "화학"
         },
         {
