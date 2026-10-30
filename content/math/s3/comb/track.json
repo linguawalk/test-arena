@@ -9,10 +9,10 @@
     "group": null
   },
   "totals": {
-    "lessons": 0,
-    "lesson_questions": 0,
+    "lessons": 3,
+    "lesson_questions": 22,
     "review_questions": 0,
-    "questions": 0
+    "questions": 22
   },
   "chapters": [
     {
@@ -20,21 +20,33 @@
       "id": "math-s3-comb-ch01",
       "title": "조합 기하",
       "dir": "ch01",
-      "available": false
+      "available": true,
+      "kind": "guide",
+      "lessons": 1,
+      "lesson_questions": 7,
+      "review_questions": 0
     },
     {
       "no": 2,
       "id": "math-s3-comb-ch02",
       "title": "확률적 방법",
       "dir": "ch02",
-      "available": false
+      "available": true,
+      "kind": "guide",
+      "lessons": 1,
+      "lesson_questions": 8,
+      "review_questions": 0
     },
     {
       "no": 3,
       "id": "math-s3-comb-ch03",
       "title": "게임",
       "dir": "ch03",
-      "available": false
+      "available": true,
+      "kind": "guide",
+      "lessons": 1,
+      "lesson_questions": 7,
+      "review_questions": 0
     }
   ]
 }
