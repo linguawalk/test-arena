@@ -297,7 +297,7 @@
           "title": "관측 자료 분석",
           "description": "측광·분광 자료 분석, 관측 문제 접근법",
           "chapters": 2,
-          "available": false,
+          "available": true,
           "group": "천문"
         }
       ]
